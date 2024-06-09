@@ -5,7 +5,7 @@ import {
 } from '@nomicfoundation/hardhat-network-helpers';
 import { expect } from 'chai';
 import { ethers } from 'hardhat';
-import { deployLottery } from './deployment.fixture';
+import { deployLottery } from './lottery.fixture';
 import { toBigInt } from 'ethers';
 
 describe('Test main function', () => {

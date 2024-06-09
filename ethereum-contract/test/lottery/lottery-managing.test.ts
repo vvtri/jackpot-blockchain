@@ -4,7 +4,7 @@ import {
   time,
 } from '@nomicfoundation/hardhat-network-helpers';
 import { expect } from 'chai';
-import { deployLottery } from './deployment.fixture';
+import { deployLottery } from './lottery.fixture';
 import { toBigInt } from 'ethers';
 
 describe('Test managing lottery', () => {

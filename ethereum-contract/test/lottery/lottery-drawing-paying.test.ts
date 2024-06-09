@@ -6,7 +6,7 @@ import {
 import { expect } from 'chai';
 import { parseUnits, toBigInt } from 'ethers';
 import { ethers, network } from 'hardhat';
-import { deployLottery, ticketPrice } from './deployment.fixture';
+import { deployLottery, ticketPrice } from './lottery.fixture';
 import { getPrize } from './lottery.helper';
 
 describe('Test drawing and paying', () => {
