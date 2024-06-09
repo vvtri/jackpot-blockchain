@@ -4,12 +4,23 @@
   "description": "contract management",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "hardhat compile",
+    "test": "yarn hardhat test",
+    "hh": "hardhat",
+    "test:cov": "yarn hardhat coverage"
   },
+  "private": true,
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hardhat": "^2.22.5"
+    "@openzeppelin/contracts": "^5.0.2",
+    "@openzeppelin/contracts-upgradeable": "^5.0.2",
+    "@openzeppelin/hardhat-upgrades": "^3.1.1",
+    "dayjs": "^1.11.11",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.5",
+    "deploy": "hardhat run script ./scripts/lottery/lottery.deploy.ts",
+    "upgrade": "hardhat run script ./scripts/lottery/lottery.upgrade.ts"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",

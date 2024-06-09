@@ -50,3 +50,4 @@ Don't allow contract to join (to prevent re-entrance attack that will cause our 
 
 The transfer maybe be delayed for large prices but not exceed 24 hours. 
 There will be a ticket history and a winning history.
+Allow owner to pause lottery at next frame, we still keep increasing our frameIdx, but we add logic to skip the drawing part if there is no user join. We still need to allow user buy ticket of this frame.
