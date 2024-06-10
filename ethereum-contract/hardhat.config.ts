@@ -15,6 +15,13 @@ const config: HardhatUserConfig = {
     },
   },
   networks: {
+    hardhat: {
+      chainId: 31337,
+    },
+    localhost: {
+      chainId: 31337,
+      url: 'http://localhost:8545',
+    },
     sepolia: {
       chainId: 11155111,
       url: 'https://rpc.sepolia.org',
@@ -26,6 +33,7 @@ const config: HardhatUserConfig = {
     // coinmarketcap: process.env.COIN_MARKET_CAP_API_KEY,
   },
   etherscan: { apiKey: process.env.ETHERSCAN_API_KEY, enabled: true },
+  defaultNetwork: 'hardhat',
 };
 
 export default config;

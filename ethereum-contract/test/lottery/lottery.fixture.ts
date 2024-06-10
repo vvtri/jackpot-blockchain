@@ -1,9 +1,8 @@
+import { getImplementationAddress } from '@openzeppelin/upgrades-core';
+import dayjs from 'dayjs';
 import { ContractTransactionResponse } from 'ethers';
 import { ethers, upgrades } from 'hardhat';
 import { LotteryTest } from '../../typechain-types';
-import { getImplementationAddress } from '@openzeppelin/upgrades-core';
-import { bigint } from 'hardhat/internal/core/params/argumentTypes';
-import dayjs from 'dayjs';
 
 let endTimeDayjs = dayjs().hour(17).minute(0).second(0);
 if (endTimeDayjs < dayjs()) {
