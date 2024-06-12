@@ -6,6 +6,7 @@ type BallProps = {
   className?: string;
   onClick?: () => any;
   showCloseIcon?: boolean;
+  size?: 'sm' | 'lg';
 } & PropsWithChildren;
 
 export default function Ball(props: BallProps) {
@@ -15,11 +16,13 @@ export default function Ball(props: BallProps) {
     className,
     onClick,
     showCloseIcon,
+    size = 'lg',
   } = props;
+
   return (
     <div
       className={cn(
-        'w-12 aspect-square flex items-center justify-center rounded-full font-bold transition relative',
+        'aspect-square flex items-center justify-center rounded-full font-bold transition relative',
         {
           'bg-[#c8102e] text-white drop-shadow-2xl': variant === 'red',
 
@@ -27,6 +30,10 @@ export default function Ball(props: BallProps) {
 
           'bg-[radial-gradient(circle_at_50%_25%,#fff,#bbb)] ':
             variant === 'default',
+        },
+        {
+          'w-7': size === 'sm',
+          'w-12': size === 'lg',
         },
         className,
       )}

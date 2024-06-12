@@ -1,0 +1,1 @@
+export const DATE_FORMAT_FILTER_DRAW = 'DD-MM-YYYY';

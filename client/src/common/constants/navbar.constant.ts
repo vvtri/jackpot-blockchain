@@ -5,14 +5,18 @@ export const NAV_BARS = [
   },
   {
     name: 'Result History',
-    link: '/result-history',
+    link: '/draw-history',
   },
   {
     name: 'Ticket history',
-    link: '/',
+    link: '/ticket-history',
   },
   {
     name: 'Winning history',
     link: '/',
+  },
+  {
+    name: 'Manage draw',
+    link: '/manage-draw',
   },
 ];

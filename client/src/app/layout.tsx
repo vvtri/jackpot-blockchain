@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../common/css/app.css';
 import '@rainbow-me/rainbowkit/styles.css';
+import { Toaster } from '@/common/components/shadcn/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -27,6 +28,8 @@ export default function RootLayout({
             {children}
           </PageWrapper>
         </AppProvider>
+
+        <Toaster  />
       </body>
     </html>
   );

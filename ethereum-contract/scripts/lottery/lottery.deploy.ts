@@ -22,10 +22,10 @@ export async function main() {
   );
   await proxy.waitForDeployment();
 
-  console.log('proxy address: ', proxy.target);
+  console.log('proxy address: ', await proxy.getAddress());
   console.log(
     'implementation address',
-    await getImplementationAddress(ethers.provider, proxy.target as string),
+    await getImplementationAddress(ethers.provider, await proxy.getAddress()),
   );
 }
 

@@ -1,15 +1,13 @@
 'use client';
 
-import React from 'react';
+import { NAV_BARS } from '@/common/constants/navbar.constant';
+import Link from 'next/link';
 import {
-  navigationMenuTriggerStyle,
   NavigationMenu,
-  NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuLink,
+  NavigationMenuList,
 } from '../shadcn/navigation-menu';
-import Link from 'next/link';
-import { NAV_BARS } from '@/common/constants/navbar.constant';
 
 export default function Navbar() {
   return (

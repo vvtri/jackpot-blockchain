@@ -49,4 +49,66 @@ abstract contract LotteryDeclaration {
   uint256 public constant LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER = 7;
   uint256 public constant LOTTERY_PRIZES_FIVE_FIRST_NUMBER = 8;
   uint256 public constant LOTTERY_PRIZES_JACKPOT = 9;
+
+  // Response Dtos
+  struct PaginationRequestDto {
+    uint256 page;
+    uint256 size;
+  }
+
+  struct DrawStatisticDto {
+    uint256 endTime;
+    uint256 frameIdx;
+    bool isExist;
+    bool isFuture;
+    uint24[6] luckyNumber;
+    address[] jackpotWinners;
+    address[] matchFiveWinners;
+  }
+
+  struct HomeStatisticDto {
+    DrawStatisticDto nextDraw;
+    DrawStatisticDto lastDraw;
+  }
+
+  struct DrawListDto {
+    DrawStatisticDto[] draws;
+    uint256 totalPage;
+  }
+
+  struct DrawPrizeDetailDto {
+    uint256 money;
+    address[] winners;
+  }
+
+  struct DrawDetailDto {
+    uint256 endTime;
+    uint24[6] luckyNumber;
+    DrawPrizeDetailDto jackpot;
+    DrawPrizeDetailDto matchFive;
+    DrawPrizeDetailDto matchFourAndLast;
+    DrawPrizeDetailDto matchFour;
+    DrawPrizeDetailDto matchThreeAndLast;
+    DrawPrizeDetailDto matchThree;
+    DrawPrizeDetailDto matchTwoAndLast;
+    DrawPrizeDetailDto matchLast;
+  }
+
+  struct TicketDto {
+    uint24[6] luckyNumber;
+    bool isPowerPlay;
+    uint256 frameIdx;
+    uint256 endTime;
+    uint256 prize;
+  }
+
+  struct WinningHistoryDto {
+    uint24[6] luckyNumber;
+    bool isPowerPlay;
+    uint256 frameIdx;
+    uint256 endTime;
+    uint256 prize;
+    uint256 money;
+  }
+  // End Response Dtos
 }

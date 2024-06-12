@@ -1,7 +1,7 @@
 'use client';
 
 import React, { PropsWithChildren, useEffect, useState } from 'react';
-import dayjs from '../../configs/dayjs.config';
+import { appDayjs } from '../../configs/dayjs.config';
 import { cn } from '@/common/utils/shadcn';
 
 type CountDownProps = {
@@ -12,11 +12,11 @@ type CountDownProps = {
 export default function CountDown(props: CountDownProps) {
   const { time, className } = props;
   const [timeLeft, setTimeLeft] = useState(() =>
-    dayjs(time).diff(dayjs(), 'second'),
+    appDayjs(time).diff(appDayjs(), 'second'),
   );
   const [mounted, setMounted] = useState(false);
 
-  const leftDuration = dayjs.duration(timeLeft, 'second');
+  const leftDuration = appDayjs.duration(timeLeft, 'second');
   const hourDiff = leftDuration.hours();
   const minuteDiff = leftDuration.minutes();
   const secondDiff = leftDuration.seconds();

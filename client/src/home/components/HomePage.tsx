@@ -1,4 +1,5 @@
-import { Button } from '@/common/components/shadcn/button';
+'use client';
+
 import {
   Card,
   CardContent,
@@ -6,36 +7,20 @@ import {
   CardTitle,
 } from '@/common/components/shadcn/card';
 import CountDown from '@/common/components/utils/CountDown';
-import LuckyNumber from '@/common/components/utils/LuckyNumber';
 import MaxWidthWrapper from '@/common/components/utils/MaxWidthWrapper';
-import dayjs from 'dayjs';
+import { appDayjs } from '@/common/configs/dayjs.config';
+import WinnerCard from '@/draw/common/components/WinnerCard';
+import WinningNumberCard from '@/draw/common/components/WinningNumberCard';
+import { useGetHomeStatistic } from '../hooks/use-get-home-statistic.hook';
 import PickTicketNumber from './PickTicketNumber';
-import { lotteryAbi } from 'ethereum-contract';
-import { useReadContracts } from 'wagmi';
 
 export default function HomePage() {
+  const { data } = useGetHomeStatistic();
+
   return (
     <MaxWidthWrapper className="pt-6 pb-12">
       <div className="grid grid-cols-3 gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-center">Winning Numbers</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-col justify-center items-center">
-              <p className="font-bold text-lg">
-                {dayjs('08/06/2024', 'DD/MM/YYYY').format('ddd, MMM, D, YYYY')}
-              </p>
-
-              <LuckyNumber className="mt-4" />
-
-              <Button className="w-full mt-4 text-base">View result</Button>
-              <Button className="w-full mt-2 text-base">
-                Check your number
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+        <WinningNumberCard drawStatistic={data?.lastDraw} />
 
         <Card>
           <CardHeader>
@@ -44,13 +29,18 @@ export default function HomePage() {
           <CardContent>
             <div className="flex flex-col justify-center items-center">
               <p className="font-bold text-lg">
-                {dayjs('08/06/2024', 'DD/MM/YYYY').format('ddd, MMM, D, YYYY')}
+                {data?.nextDraw.endTime &&
+                  appDayjs
+                    .unix(Number(data.nextDraw.endTime))
+                    .format('ddd, MMM, D, YYYY')}
               </p>
 
-              <CountDown
-                time={new Date('2024-06-11T05:25:46.415Z')}
-                className="mt-4"
-              />
+              {data?.nextDraw.endTime && (
+                <CountDown
+                  time={appDayjs.unix(Number(data.nextDraw.endTime)).toDate()}
+                  className="mt-4"
+                />
+              )}
 
               <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight mt-4 py-4 px-2 bg-primary  text-muted w-full text-center rounded-lg">
                 Estimated jackpot
@@ -61,33 +51,7 @@ export default function HomePage() {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-center">Winners</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-col justify-center items-center">
-              <p className="font-bold text-lg">
-                {dayjs('08/06/2024', 'DD/MM/YYYY').format('ddd, MMM, D, YYYY')}
-              </p>
-
-              <h4 className="scroll-m-20 text-2xl font-bold tracking-wide mt-4 uppercase ">
-                Jackpot Winner
-              </h4>
-              <p className="text-red-500 font-medium">None</p>
-
-              <h4 className="scroll-m-20 text-2xl font-bold tracking-wide mt-4 uppercase ">
-                Jackpot Winner
-              </h4>
-              <p className="text-red-500 font-medium">None</p>
-
-              <h4 className="scroll-m-20 text-2xl font-bold tracking-wide mt-4 uppercase ">
-                Jackpot Winner
-              </h4>
-              <p className="text-red-500 font-medium">None</p>
-            </div>
-          </CardContent>
-        </Card>
+        <WinnerCard drawStatistic={data?.lastDraw} />
       </div>
 
       <h2 className="text-4xl font-bold text-center my-12">

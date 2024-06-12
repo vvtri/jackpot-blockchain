@@ -2,21 +2,25 @@ import React from 'react';
 import Ball from './Ball';
 import { cn } from '@/common/utils/shadcn';
 
-type LuckyNumberProps = {
+export type LuckyNumberProps = {
   className?: string;
+  data:
+    | readonly [number, number, number, number, number, number]
+    | [number, number, number, number, number, number];
 };
 
 export default function LuckyNumber(props: LuckyNumberProps) {
-  const { className } = props;
+  const { className, data } = props;
+  const normalBalls = data.slice(0, 5);
+  const lastBall = data[data.length - 1];
 
   return (
     <div className={cn('flex gap-2', className)}>
-      <Ball>8</Ball>
-      <Ball>15</Ball>
-      <Ball>15</Ball>
-      <Ball>15</Ball>
-      <Ball>15</Ball>
-      <Ball variant="red">15</Ball>
+      {normalBalls.map((item, idx) => (
+        <Ball key={`${item}${idx}`}>{item}</Ball>
+      ))}
+
+      <Ball variant="red">{lastBall}</Ball>
     </div>
   );
 }

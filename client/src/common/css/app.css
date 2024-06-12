@@ -63,3 +63,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+.draw-history-date-selector {
+  grid-template-columns: 3fr 3fr 2fr;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}

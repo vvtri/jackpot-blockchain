@@ -1,26 +1,28 @@
 'use client';
 
 import { Button } from '@/common/components/shadcn/button';
+import { Input } from '@/common/components/shadcn/input';
+import { useToast } from '@/common/components/shadcn/use-toast';
 import Ball from '@/common/components/utils/Ball';
-import { ADDRESS } from '@/common/configs/app.config';
 import {
   MAX_LAST_TICKET_NUMBER,
   MAX_NORMAL_TICKET_NUMBER,
   MIN_TICKET_NUMBER,
   NORMAL_BALL_SIZE,
 } from '@/common/constants/app.constant';
-import { lotteryAbi } from 'ethereum-contract';
 import { Loader2 } from 'lucide-react';
-import React, { ReactNode, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { FaRandom } from 'react-icons/fa';
-import { useAccount, useWriteContract } from 'wagmi';
+import { useBuyTicketHook } from '../hooks/use-buy-ticket.hook';
 
 export default function PickTicketNumber() {
-  const { address } = useAccount();
-  const { data: hash, writeContractAsync, isPending } = useWriteContract();
+  const { toast } = useToast();
+
+  const { buyTicket, hash, isPending } = useBuyTicketHook();
 
   const normalBalls: ReactNode[] = [];
   const lastBalls: ReactNode[] = [];
+  const [ticketAmount, setTicketAmount] = useState(1);
 
   const [selectedNormalBalls, setSelectedNormalBalls] = useState<number[]>([]);
   const [selectedLastBal, setSelectedLastBal] = useState<number | null>(null);
@@ -37,9 +39,10 @@ export default function PickTicketNumber() {
     setSelectedNormalBalls([]);
     setSelectedLastBal(null);
   };
+
   const handleRandomBall = () => {
     const normalNumbers: number[] = [];
-    for (let i = 0; i < NORMAL_BALL_SIZE + 1; i++) {
+    for (let i = 0; i < NORMAL_BALL_SIZE; i++) {
       normalNumbers.push(
         Math.floor(
           Math.random() * (MAX_NORMAL_TICKET_NUMBER - MIN_TICKET_NUMBER + 1) +
@@ -57,14 +60,19 @@ export default function PickTicketNumber() {
   };
 
   const handleBuyTicket = async () => {
-    try {
-      const hash = await writeContractAsync({
-        abi: lotteryAbi,
-        functionName: 'buyTicket',
-        args: [BigInt(1), false, [1, 2, 3, 4, 5, 6]],
-        address: ADDRESS.LOTTERY.SEPOLIA,
+    if (isPending) return;
+    if (selectedNormalBalls.length < 5)
+      return toast({
+        variant: 'destructive',
+        title: 'Please select first 5 balls',
       });
-    } catch (error) {}
+    if (!selectedLastBal)
+      return toast({
+        variant: 'destructive',
+        title: 'Please select last ball',
+      });
+
+    buyTicket(ticketAmount, [...selectedNormalBalls, selectedLastBal]);
   };
 
   for (let i = MIN_TICKET_NUMBER; i <= MAX_NORMAL_TICKET_NUMBER; i++) {
@@ -110,7 +118,7 @@ export default function PickTicketNumber() {
           </p>
         </div>
 
-        <div className="shrink-0 flex gap-4">
+        <div className="shrink-0 flex gap-4 items-center">
           {selectedNormalBalls.map((item, idx) => (
             <Ball
               children={item}
@@ -138,7 +146,7 @@ export default function PickTicketNumber() {
           )}
         </div>
 
-        <div className="space-x-5">
+        <div className="space-x-5 flex items-center">
           <Button
             variant="outline"
             className="border-primary"
@@ -156,8 +164,15 @@ export default function PickTicketNumber() {
             <FaRandom className="ml-3" />
           </Button>
 
+          <Input
+            type="number"
+            value={ticketAmount}
+            onChange={(e) => setTicketAmount(Number(e.target.value) || 0)}
+            className="w-[100px]"
+          />
+
           <Button onClick={handleBuyTicket} disabled={isPending}>
-            {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            {isPending && <Loader2 className="mr-2 animate-spin" />}
             Checkout
           </Button>
         </div>

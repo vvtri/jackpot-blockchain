@@ -42,7 +42,16 @@ describe('Test managing lottery', () => {
   it('should pause and restart correctly', async () => {
     const { proxy, others, endTime, frameDuration, ticketPrice } =
       await loadFixture(deployLottery);
-    const [user1] = others;
+
+    const currentFrameIdx = await proxy.currentFrameIdx();
+
+    await (await proxy.pause()).wait();
+    await expect(proxy['restart(uint256)'](endTime)).rejected;
+
+    await proxy['restart()']();
+
+    const nextFrameIdx = await proxy.currentFrameIdx();
+    expect(currentFrameIdx).eq(nextFrameIdx);
 
     await (await proxy.pause()).wait();
 
@@ -54,8 +63,9 @@ describe('Test managing lottery', () => {
     const nextEndTime = endTime + frameDuration * 5;
     await time.increaseTo(nextEndTime - Math.round(frameDuration / 2));
 
-    await expect(proxy.restart(nextEndTime - frameDuration)).rejected;
-    await (await proxy.restart(nextEndTime)).wait();
+    await expect(proxy['restart(uint256)'](nextEndTime - frameDuration))
+      .rejected;
+    await (await proxy['restart(uint256)'](nextEndTime)).wait();
 
     const curFrameIdx = await proxy.currentFrameIdx();
     const lastEndTime = await proxy.endTimes(curFrameIdx);
@@ -66,5 +76,21 @@ describe('Test managing lottery', () => {
     await proxy.buyTicket(2, false, [1, 1, 1, 1, 1, 1], {
       value: ticketPrice * toBigInt(2),
     });
+  });
+
+  it('should set current end time successfully', async () => {
+    const { proxy, others, endTime, frameDuration, ticketPrice } =
+      await loadFixture(deployLottery);
+
+    const endTimeFuture = endTime - 50000;
+    const endTimePass = endTime + 50000;
+
+    await (await proxy.setCurrentEndTime(endTimeFuture)).wait();
+    let curEndTime = await proxy.endTimes(0);
+    expect(curEndTime).eq(endTimeFuture);
+
+    await (await proxy.setCurrentEndTime(endTimePass)).wait();
+    curEndTime = await proxy.endTimes(0);
+    expect(curEndTime).eq(endTimePass);
   });
 });
