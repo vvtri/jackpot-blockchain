@@ -1,5 +1,19 @@
 This is a jackpot project I built using blockchain technology.
 
+### Features:
+
+1. Smart contract testing:
+   1. Test coverage > 80%
+   2. Gas reporter
+   3. Use fixture to increase testing time
+2. Upgradable contract
+3. Use secure random pattern
+4. Tight package variables
+5. Use wagmi and rainbowkit to handle interacting with contract in FE
+6. Use fully typescript
+7. Use optimizer compiler
+8. Use automation oracle
+
 ### Lottery rule:
 
 #### Lucky number
