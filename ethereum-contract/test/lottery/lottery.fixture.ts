@@ -24,14 +24,10 @@ export const deployLottery = async () => {
 
   const [owner, ...others] = await ethers.getSigners();
 
-  const proxy = (await upgrades.deployProxy(
-    Lottery,
-    [...initializeParams, owner.address] as any,
-    {
-      kind: 'uups',
-      initializer: 'initialize',
-    },
-  )) as any as LotteryTest & ContractTransactionResponse;
+  const proxy = (await upgrades.deployProxy(Lottery, initializeParams as any, {
+    kind: 'uups',
+    initializer: 'initialize',
+  })) as any as LotteryTest & ContractTransactionResponse;
   await proxy.waitForDeployment();
 
   const implementation = await getImplementationAddress(

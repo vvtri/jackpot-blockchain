@@ -13,7 +13,7 @@ import type {
   ContractRunner,
   ContractMethod,
   Listener,
-} from 'ethers';
+} from "ethers";
 import type {
   TypedContractEvent,
   TypedDeferredTopicFilter,
@@ -21,42 +21,42 @@ import type {
   TypedLogDescription,
   TypedListener,
   TypedContractMethod,
-} from '../../common';
+} from "../../common";
 
 export interface PayableUUPSUpgradeableInterface extends Interface {
   getFunction(
     nameOrSignature:
-      | 'UPGRADE_INTERFACE_VERSION'
-      | 'proxiableUUID'
-      | 'upgradeToAndCall',
+      | "UPGRADE_INTERFACE_VERSION"
+      | "proxiableUUID"
+      | "upgradeToAndCall"
   ): FunctionFragment;
 
-  getEvent(nameOrSignatureOrTopic: 'Initialized' | 'Upgraded'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "Initialized" | "Upgraded"): EventFragment;
 
   encodeFunctionData(
-    functionFragment: 'UPGRADE_INTERFACE_VERSION',
-    values?: undefined,
+    functionFragment: "UPGRADE_INTERFACE_VERSION",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'proxiableUUID',
-    values?: undefined,
+    functionFragment: "proxiableUUID",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'upgradeToAndCall',
-    values: [AddressLike, BytesLike],
+    functionFragment: "upgradeToAndCall",
+    values: [AddressLike, BytesLike]
   ): string;
 
   decodeFunctionResult(
-    functionFragment: 'UPGRADE_INTERFACE_VERSION',
-    data: BytesLike,
+    functionFragment: "UPGRADE_INTERFACE_VERSION",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'proxiableUUID',
-    data: BytesLike,
+    functionFragment: "proxiableUUID",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'upgradeToAndCall',
-    data: BytesLike,
+    functionFragment: "upgradeToAndCall",
+    data: BytesLike
   ): Result;
 }
 
@@ -93,77 +93,77 @@ export interface PayableUUPSUpgradeable extends BaseContract {
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TypedEventLog<TCEvent>>>;
   queryFilter<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TypedEventLog<TCEvent>>>;
 
   on<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
   on<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
 
   once<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
   once<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
 
   listeners<TCEvent extends TypedContractEvent>(
-    event: TCEvent,
+    event: TCEvent
   ): Promise<Array<TypedListener<TCEvent>>>;
   listeners(eventName?: string): Promise<Array<Listener>>;
   removeAllListeners<TCEvent extends TypedContractEvent>(
-    event?: TCEvent,
+    event?: TCEvent
   ): Promise<this>;
 
-  UPGRADE_INTERFACE_VERSION: TypedContractMethod<[], [string], 'view'>;
+  UPGRADE_INTERFACE_VERSION: TypedContractMethod<[], [string], "view">;
 
-  proxiableUUID: TypedContractMethod<[], [string], 'view'>;
+  proxiableUUID: TypedContractMethod<[], [string], "view">;
 
   upgradeToAndCall: TypedContractMethod<
     [newImplementation: AddressLike, data: BytesLike],
     [void],
-    'payable'
+    "payable"
   >;
 
   getFunction<T extends ContractMethod = ContractMethod>(
-    key: string | FunctionFragment,
+    key: string | FunctionFragment
   ): T;
 
   getFunction(
-    nameOrSignature: 'UPGRADE_INTERFACE_VERSION',
-  ): TypedContractMethod<[], [string], 'view'>;
+    nameOrSignature: "UPGRADE_INTERFACE_VERSION"
+  ): TypedContractMethod<[], [string], "view">;
   getFunction(
-    nameOrSignature: 'proxiableUUID',
-  ): TypedContractMethod<[], [string], 'view'>;
+    nameOrSignature: "proxiableUUID"
+  ): TypedContractMethod<[], [string], "view">;
   getFunction(
-    nameOrSignature: 'upgradeToAndCall',
+    nameOrSignature: "upgradeToAndCall"
   ): TypedContractMethod<
     [newImplementation: AddressLike, data: BytesLike],
     [void],
-    'payable'
+    "payable"
   >;
 
   getEvent(
-    key: 'Initialized',
+    key: "Initialized"
   ): TypedContractEvent<
     InitializedEvent.InputTuple,
     InitializedEvent.OutputTuple,
     InitializedEvent.OutputObject
   >;
   getEvent(
-    key: 'Upgraded',
+    key: "Upgraded"
   ): TypedContractEvent<
     UpgradedEvent.InputTuple,
     UpgradedEvent.OutputTuple,
@@ -171,7 +171,7 @@ export interface PayableUUPSUpgradeable extends BaseContract {
   >;
 
   filters: {
-    'Initialized(uint64)': TypedContractEvent<
+    "Initialized(uint64)": TypedContractEvent<
       InitializedEvent.InputTuple,
       InitializedEvent.OutputTuple,
       InitializedEvent.OutputObject
@@ -182,7 +182,7 @@ export interface PayableUUPSUpgradeable extends BaseContract {
       InitializedEvent.OutputObject
     >;
 
-    'Upgraded(address)': TypedContractEvent<
+    "Upgraded(address)": TypedContractEvent<
       UpgradedEvent.InputTuple,
       UpgradedEvent.OutputTuple,
       UpgradedEvent.OutputObject

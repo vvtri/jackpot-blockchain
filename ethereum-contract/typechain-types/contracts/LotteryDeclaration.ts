@@ -10,137 +10,137 @@ import type {
   ContractRunner,
   ContractMethod,
   Listener,
-} from 'ethers';
+} from "ethers";
 import type {
   TypedContractEvent,
   TypedDeferredTopicFilter,
   TypedEventLog,
   TypedListener,
   TypedContractMethod,
-} from '../common';
+} from "../common";
 
 export interface LotteryDeclarationInterface extends Interface {
   getFunction(
     nameOrSignature:
-      | 'LOTTERY_PRIZES_FIVE_FIRST_NUMBER'
-      | 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER'
-      | 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER'
-      | 'LOTTERY_PRIZES_JACKPOT'
-      | 'LOTTERY_PRIZES_LAST_NUMBER'
-      | 'LOTTERY_PRIZES_NOT_LUCKY'
-      | 'LOTTERY_PRIZES_THREE_FIRST_NUMBER'
-      | 'LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER'
-      | 'LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER'
-      | 'MAX_LUCKY_NUMBER_LAST_SLOT_VALUE'
-      | 'MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE'
-      | 'MAX_TICKET_AMOUNT_EACH_BUY'
-      | 'MIN_LUCKY_NUMBER_SLOT_VALUE',
+      | "LOTTERY_PRIZES_FIVE_FIRST_NUMBER"
+      | "LOTTERY_PRIZES_FOUR_FIRST_NUMBER"
+      | "LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER"
+      | "LOTTERY_PRIZES_JACKPOT"
+      | "LOTTERY_PRIZES_LAST_NUMBER"
+      | "LOTTERY_PRIZES_NOT_LUCKY"
+      | "LOTTERY_PRIZES_THREE_FIRST_NUMBER"
+      | "LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER"
+      | "LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER"
+      | "MAX_LUCKY_NUMBER_LAST_SLOT_VALUE"
+      | "MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE"
+      | "MAX_TICKET_AMOUNT_EACH_BUY"
+      | "MIN_LUCKY_NUMBER_SLOT_VALUE"
   ): FunctionFragment;
 
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_FIVE_FIRST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_FIVE_FIRST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_JACKPOT',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_JACKPOT",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_LAST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_LAST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_NOT_LUCKY',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_NOT_LUCKY",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_THREE_FIRST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'MAX_LUCKY_NUMBER_LAST_SLOT_VALUE',
-    values?: undefined,
+    functionFragment: "MAX_LUCKY_NUMBER_LAST_SLOT_VALUE",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE',
-    values?: undefined,
+    functionFragment: "MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'MAX_TICKET_AMOUNT_EACH_BUY',
-    values?: undefined,
+    functionFragment: "MAX_TICKET_AMOUNT_EACH_BUY",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'MIN_LUCKY_NUMBER_SLOT_VALUE',
-    values?: undefined,
+    functionFragment: "MIN_LUCKY_NUMBER_SLOT_VALUE",
+    values?: undefined
   ): string;
 
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_FIVE_FIRST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_FIVE_FIRST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_JACKPOT',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_JACKPOT",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_LAST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_LAST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_NOT_LUCKY',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_NOT_LUCKY",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_THREE_FIRST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'MAX_LUCKY_NUMBER_LAST_SLOT_VALUE',
-    data: BytesLike,
+    functionFragment: "MAX_LUCKY_NUMBER_LAST_SLOT_VALUE",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE',
-    data: BytesLike,
+    functionFragment: "MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'MAX_TICKET_AMOUNT_EACH_BUY',
-    data: BytesLike,
+    functionFragment: "MAX_TICKET_AMOUNT_EACH_BUY",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'MIN_LUCKY_NUMBER_SLOT_VALUE',
-    data: BytesLike,
+    functionFragment: "MIN_LUCKY_NUMBER_SLOT_VALUE",
+    data: BytesLike
   ): Result;
 }
 
@@ -153,121 +153,121 @@ export interface LotteryDeclaration extends BaseContract {
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TypedEventLog<TCEvent>>>;
   queryFilter<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TypedEventLog<TCEvent>>>;
 
   on<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
   on<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
 
   once<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
   once<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
 
   listeners<TCEvent extends TypedContractEvent>(
-    event: TCEvent,
+    event: TCEvent
   ): Promise<Array<TypedListener<TCEvent>>>;
   listeners(eventName?: string): Promise<Array<Listener>>;
   removeAllListeners<TCEvent extends TypedContractEvent>(
-    event?: TCEvent,
+    event?: TCEvent
   ): Promise<this>;
 
-  LOTTERY_PRIZES_FIVE_FIRST_NUMBER: TypedContractMethod<[], [bigint], 'view'>;
+  LOTTERY_PRIZES_FIVE_FIRST_NUMBER: TypedContractMethod<[], [bigint], "view">;
 
-  LOTTERY_PRIZES_FOUR_FIRST_NUMBER: TypedContractMethod<[], [bigint], 'view'>;
+  LOTTERY_PRIZES_FOUR_FIRST_NUMBER: TypedContractMethod<[], [bigint], "view">;
 
   LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER: TypedContractMethod<
     [],
     [bigint],
-    'view'
+    "view"
   >;
 
-  LOTTERY_PRIZES_JACKPOT: TypedContractMethod<[], [bigint], 'view'>;
+  LOTTERY_PRIZES_JACKPOT: TypedContractMethod<[], [bigint], "view">;
 
-  LOTTERY_PRIZES_LAST_NUMBER: TypedContractMethod<[], [bigint], 'view'>;
+  LOTTERY_PRIZES_LAST_NUMBER: TypedContractMethod<[], [bigint], "view">;
 
-  LOTTERY_PRIZES_NOT_LUCKY: TypedContractMethod<[], [bigint], 'view'>;
+  LOTTERY_PRIZES_NOT_LUCKY: TypedContractMethod<[], [bigint], "view">;
 
-  LOTTERY_PRIZES_THREE_FIRST_NUMBER: TypedContractMethod<[], [bigint], 'view'>;
+  LOTTERY_PRIZES_THREE_FIRST_NUMBER: TypedContractMethod<[], [bigint], "view">;
 
   LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER: TypedContractMethod<
     [],
     [bigint],
-    'view'
+    "view"
   >;
 
   LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER: TypedContractMethod<
     [],
     [bigint],
-    'view'
+    "view"
   >;
 
-  MAX_LUCKY_NUMBER_LAST_SLOT_VALUE: TypedContractMethod<[], [bigint], 'view'>;
+  MAX_LUCKY_NUMBER_LAST_SLOT_VALUE: TypedContractMethod<[], [bigint], "view">;
 
-  MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE: TypedContractMethod<[], [bigint], 'view'>;
+  MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE: TypedContractMethod<[], [bigint], "view">;
 
-  MAX_TICKET_AMOUNT_EACH_BUY: TypedContractMethod<[], [bigint], 'view'>;
+  MAX_TICKET_AMOUNT_EACH_BUY: TypedContractMethod<[], [bigint], "view">;
 
-  MIN_LUCKY_NUMBER_SLOT_VALUE: TypedContractMethod<[], [bigint], 'view'>;
+  MIN_LUCKY_NUMBER_SLOT_VALUE: TypedContractMethod<[], [bigint], "view">;
 
   getFunction<T extends ContractMethod = ContractMethod>(
-    key: string | FunctionFragment,
+    key: string | FunctionFragment
   ): T;
 
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_FIVE_FIRST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_FIVE_FIRST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_JACKPOT',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_JACKPOT"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_LAST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_LAST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_NOT_LUCKY',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_NOT_LUCKY"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_THREE_FIRST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'MAX_LUCKY_NUMBER_LAST_SLOT_VALUE',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "MAX_LUCKY_NUMBER_LAST_SLOT_VALUE"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'MAX_TICKET_AMOUNT_EACH_BUY',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "MAX_TICKET_AMOUNT_EACH_BUY"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'MIN_LUCKY_NUMBER_SLOT_VALUE',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "MIN_LUCKY_NUMBER_SLOT_VALUE"
+  ): TypedContractMethod<[], [bigint], "view">;
 
   filters: {};
 }

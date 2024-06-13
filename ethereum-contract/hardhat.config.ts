@@ -30,7 +30,7 @@ const config: HardhatUserConfig = {
     },
     sepolia: {
       chainId: 11155111,
-      url: 'https://rpc.sepolia.org',
+      url: process.env.ALCHEMY_SEPOLIA_RPC_URL!,
       accounts: [process.env.SEPOLIA_OWNER_PRIVATE_KEY!],
     },
   },

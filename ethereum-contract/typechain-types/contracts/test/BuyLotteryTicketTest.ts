@@ -12,24 +12,24 @@ import type {
   ContractRunner,
   ContractMethod,
   Listener,
-} from 'ethers';
+} from "ethers";
 import type {
   TypedContractEvent,
   TypedDeferredTopicFilter,
   TypedEventLog,
   TypedListener,
   TypedContractMethod,
-} from '../../common';
+} from "../../common";
 
 export interface BuyLotteryTicketTestInterface extends Interface {
-  getFunction(nameOrSignature: 'buyLottery'): FunctionFragment;
+  getFunction(nameOrSignature: "buyLottery"): FunctionFragment;
 
   encodeFunctionData(
-    functionFragment: 'buyLottery',
-    values: [AddressLike, BigNumberish, boolean, BigNumberish[]],
+    functionFragment: "buyLottery",
+    values: [AddressLike, BigNumberish, boolean, BigNumberish[]]
   ): string;
 
-  decodeFunctionResult(functionFragment: 'buyLottery', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "buyLottery", data: BytesLike): Result;
 }
 
 export interface BuyLotteryTicketTest extends BaseContract {
@@ -41,38 +41,38 @@ export interface BuyLotteryTicketTest extends BaseContract {
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TypedEventLog<TCEvent>>>;
   queryFilter<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TypedEventLog<TCEvent>>>;
 
   on<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
   on<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
 
   once<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
   once<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
 
   listeners<TCEvent extends TypedContractEvent>(
-    event: TCEvent,
+    event: TCEvent
   ): Promise<Array<TypedListener<TCEvent>>>;
   listeners(eventName?: string): Promise<Array<Listener>>;
   removeAllListeners<TCEvent extends TypedContractEvent>(
-    event?: TCEvent,
+    event?: TCEvent
   ): Promise<this>;
 
   buyLottery: TypedContractMethod<
@@ -80,27 +80,27 @@ export interface BuyLotteryTicketTest extends BaseContract {
       lottery: AddressLike,
       ticketAmount: BigNumberish,
       isPowerPlay: boolean,
-      ticketNumber: BigNumberish[],
+      ticketNumber: BigNumberish[]
     ],
     [void],
-    'payable'
+    "payable"
   >;
 
   getFunction<T extends ContractMethod = ContractMethod>(
-    key: string | FunctionFragment,
+    key: string | FunctionFragment
   ): T;
 
   getFunction(
-    nameOrSignature: 'buyLottery',
+    nameOrSignature: "buyLottery"
   ): TypedContractMethod<
     [
       lottery: AddressLike,
       ticketAmount: BigNumberish,
       isPowerPlay: boolean,
-      ticketNumber: BigNumberish[],
+      ticketNumber: BigNumberish[]
     ],
     [void],
-    'payable'
+    "payable"
   >;
 
   filters: {};

@@ -2,181 +2,181 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Interface, type ContractRunner } from 'ethers';
+import { Contract, Interface, type ContractRunner } from "ethers";
 import type {
   LotteryDeclaration,
   LotteryDeclarationInterface,
-} from '../../contracts/LotteryDeclaration';
+} from "../../contracts/LotteryDeclaration";
 
 const _abi = [
   {
     inputs: [],
-    name: 'LOTTERY_PRIZES_FIVE_FIRST_NUMBER',
+    name: "LOTTERY_PRIZES_FIVE_FIRST_NUMBER",
     outputs: [
       {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
-    name: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER',
+    name: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER",
     outputs: [
       {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
-    name: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER',
+    name: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER",
     outputs: [
       {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
-    name: 'LOTTERY_PRIZES_JACKPOT',
+    name: "LOTTERY_PRIZES_JACKPOT",
     outputs: [
       {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
-    name: 'LOTTERY_PRIZES_LAST_NUMBER',
+    name: "LOTTERY_PRIZES_LAST_NUMBER",
     outputs: [
       {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
-    name: 'LOTTERY_PRIZES_NOT_LUCKY',
+    name: "LOTTERY_PRIZES_NOT_LUCKY",
     outputs: [
       {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
-    name: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER',
+    name: "LOTTERY_PRIZES_THREE_FIRST_NUMBER",
     outputs: [
       {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
-    name: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER',
+    name: "LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER",
     outputs: [
       {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
-    name: 'LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER',
+    name: "LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER",
     outputs: [
       {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
-    name: 'MAX_LUCKY_NUMBER_LAST_SLOT_VALUE',
+    name: "MAX_LUCKY_NUMBER_LAST_SLOT_VALUE",
     outputs: [
       {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
-    name: 'MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE',
+    name: "MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE",
     outputs: [
       {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
-    name: 'MAX_TICKET_AMOUNT_EACH_BUY',
+    name: "MAX_TICKET_AMOUNT_EACH_BUY",
     outputs: [
       {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
-    name: 'MIN_LUCKY_NUMBER_SLOT_VALUE',
+    name: "MIN_LUCKY_NUMBER_SLOT_VALUE",
     outputs: [
       {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
-    stateMutability: 'view',
-    type: 'function',
+    stateMutability: "view",
+    type: "function",
   },
 ] as const;
 
@@ -187,7 +187,7 @@ export class LotteryDeclaration__factory {
   }
   static connect(
     address: string,
-    runner?: ContractRunner | null,
+    runner?: ContractRunner | null
   ): LotteryDeclaration {
     return new Contract(address, _abi, runner) as unknown as LotteryDeclaration;
   }

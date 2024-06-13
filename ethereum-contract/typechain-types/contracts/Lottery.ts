@@ -194,6 +194,8 @@ export interface LotteryInterface extends Interface {
       | "MAX_TICKET_AMOUNT_EACH_BUY"
       | "MIN_LUCKY_NUMBER_SLOT_VALUE"
       | "UPGRADE_INTERFACE_VERSION"
+      | "automationOracle"
+      | "automationOracleDrawing"
       | "blockNumber"
       | "buyTicket"
       | "currentFrameIdx"
@@ -219,6 +221,8 @@ export interface LotteryInterface extends Interface {
       | "proxiableUUID"
       | "restart(uint256)"
       | "restart()"
+      | "setAutomationOracle"
+      | "setAutomationOracleDrawing"
       | "setCurrentEndTime"
       | "shouldDrawing"
       | "shouldPreparingDrawing"
@@ -288,6 +292,14 @@ export interface LotteryInterface extends Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
+    functionFragment: "automationOracle",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "automationOracleDrawing",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "blockNumber",
     values?: undefined
   ): string;
@@ -338,13 +350,7 @@ export interface LotteryInterface extends Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "initialize",
-    values: [
-      BigNumberish,
-      BigNumberish,
-      BigNumberish,
-      BigNumberish,
-      AddressLike
-    ]
+    values: [BigNumberish, BigNumberish, BigNumberish, BigNumberish]
   ): string;
   encodeFunctionData(
     functionFragment: "isPaidForWinners",
@@ -378,6 +384,14 @@ export interface LotteryInterface extends Interface {
     values: [BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "restart()", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "setAutomationOracle",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setAutomationOracleDrawing",
+    values: [AddressLike]
+  ): string;
   encodeFunctionData(
     functionFragment: "setCurrentEndTime",
     values: [BigNumberish]
@@ -465,6 +479,14 @@ export interface LotteryInterface extends Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "automationOracle",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "automationOracleDrawing",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "blockNumber",
     data: BytesLike
   ): Result;
@@ -537,6 +559,14 @@ export interface LotteryInterface extends Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "restart()", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "setAutomationOracle",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setAutomationOracleDrawing",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "setCurrentEndTime",
     data: BytesLike
@@ -672,6 +702,10 @@ export interface Lottery extends BaseContract {
 
   UPGRADE_INTERFACE_VERSION: TypedContractMethod<[], [string], "view">;
 
+  automationOracle: TypedContractMethod<[], [string], "view">;
+
+  automationOracleDrawing: TypedContractMethod<[], [string], "view">;
+
   blockNumber: TypedContractMethod<[], [bigint], "view">;
 
   buyTicket: TypedContractMethod<
@@ -739,8 +773,7 @@ export interface Lottery extends BaseContract {
       _endTime: BigNumberish,
       _frameDuration: BigNumberish,
       _ticketPrice: BigNumberish,
-      _powerPlayPrice: BigNumberish,
-      _automationOracle: AddressLike
+      _powerPlayPrice: BigNumberish
     ],
     [void],
     "nonpayable"
@@ -783,6 +816,18 @@ export interface Lottery extends BaseContract {
   >;
 
   "restart()": TypedContractMethod<[], [void], "nonpayable">;
+
+  setAutomationOracle: TypedContractMethod<
+    [_automationOracle: AddressLike],
+    [void],
+    "nonpayable"
+  >;
+
+  setAutomationOracleDrawing: TypedContractMethod<
+    [_automationOracleDrawing: AddressLike],
+    [void],
+    "nonpayable"
+  >;
 
   setCurrentEndTime: TypedContractMethod<
     [currentEndTime: BigNumberish],
@@ -863,6 +908,12 @@ export interface Lottery extends BaseContract {
     nameOrSignature: "UPGRADE_INTERFACE_VERSION"
   ): TypedContractMethod<[], [string], "view">;
   getFunction(
+    nameOrSignature: "automationOracle"
+  ): TypedContractMethod<[], [string], "view">;
+  getFunction(
+    nameOrSignature: "automationOracleDrawing"
+  ): TypedContractMethod<[], [string], "view">;
+  getFunction(
     nameOrSignature: "blockNumber"
   ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
@@ -940,8 +991,7 @@ export interface Lottery extends BaseContract {
       _endTime: BigNumberish,
       _frameDuration: BigNumberish,
       _ticketPrice: BigNumberish,
-      _powerPlayPrice: BigNumberish,
-      _automationOracle: AddressLike
+      _powerPlayPrice: BigNumberish
     ],
     [void],
     "nonpayable"
@@ -983,6 +1033,20 @@ export interface Lottery extends BaseContract {
   getFunction(
     nameOrSignature: "restart()"
   ): TypedContractMethod<[], [void], "nonpayable">;
+  getFunction(
+    nameOrSignature: "setAutomationOracle"
+  ): TypedContractMethod<
+    [_automationOracle: AddressLike],
+    [void],
+    "nonpayable"
+  >;
+  getFunction(
+    nameOrSignature: "setAutomationOracleDrawing"
+  ): TypedContractMethod<
+    [_automationOracleDrawing: AddressLike],
+    [void],
+    "nonpayable"
+  >;
   getFunction(
     nameOrSignature: "setCurrentEndTime"
   ): TypedContractMethod<[currentEndTime: BigNumberish], [void], "nonpayable">;

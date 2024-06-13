@@ -10,7 +10,7 @@ export async function main() {
   const proxy = await upgrades.upgradeProxy(
     process.env.LOTTERY_PROXY_ADDRESS!,
     Lottery,
-    { kind: 'uups' },
+    { kind: 'uups', timeout: 0 },
   );
   await proxy.waitForDeployment();
 

@@ -36,6 +36,7 @@ export interface LotteryStateInterface extends Interface {
       | "MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE"
       | "MAX_TICKET_AMOUNT_EACH_BUY"
       | "MIN_LUCKY_NUMBER_SLOT_VALUE"
+      | "automationOracle"
       | "blockNumber"
       | "currentFrameIdx"
       | "endTimes"
@@ -100,6 +101,10 @@ export interface LotteryStateInterface extends Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "MIN_LUCKY_NUMBER_SLOT_VALUE",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "automationOracle",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -195,6 +200,10 @@ export interface LotteryStateInterface extends Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "MIN_LUCKY_NUMBER_SLOT_VALUE",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "automationOracle",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -316,6 +325,8 @@ export interface LotteryState extends BaseContract {
 
   MIN_LUCKY_NUMBER_SLOT_VALUE: TypedContractMethod<[], [bigint], "view">;
 
+  automationOracle: TypedContractMethod<[], [string], "view">;
+
   blockNumber: TypedContractMethod<[], [bigint], "view">;
 
   currentFrameIdx: TypedContractMethod<[], [bigint], "view">;
@@ -399,6 +410,9 @@ export interface LotteryState extends BaseContract {
   getFunction(
     nameOrSignature: "MIN_LUCKY_NUMBER_SLOT_VALUE"
   ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
+    nameOrSignature: "automationOracle"
+  ): TypedContractMethod<[], [string], "view">;
   getFunction(
     nameOrSignature: "blockNumber"
   ): TypedContractMethod<[], [bigint], "view">;

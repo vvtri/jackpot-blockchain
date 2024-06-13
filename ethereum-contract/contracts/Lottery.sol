@@ -10,6 +10,18 @@ import 'hardhat/console.sol'; //TODO: remove
 // TODO: Power play
 // TODO: Allow buy ticket for multiple draw
 contract Lottery is LotteryState, PayableUUPSUpgradeable {
+  /// 32 bit block
+  address public automationOracleDrawing;
+  /// 32 bit block
+
+  modifier automationOracleDrawingOrOwner() {
+    require(
+      msg.sender == automationOracleDrawing || msg.sender == owner,
+      'msg.sender == automationOracle'
+    );
+    _;
+  }
+
   function _authorizeUpgrade(
     address newImplementation
   ) internal virtual override ownerOnly {}
@@ -18,8 +30,7 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
     uint128 _endTime,
     uint128 _frameDuration,
     uint128 _ticketPrice,
-    uint128 _powerPlayPrice,
-    address _automationOracle
+    uint128 _powerPlayPrice
   ) external virtual initializer {
     owner = msg.sender;
     endTimes[currentFrameIdx] = _endTime;
@@ -27,7 +38,6 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
     ticketPrice = _ticketPrice;
     powerPlayPrice = _powerPlayPrice;
     isPaused = false;
-    automationOracle = _automationOracle;
   }
 
   // main func
@@ -62,7 +72,7 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
 
   // Not use sealed seed because it needs automation oracle that allow use to pass parameter (seed in this case)
   // function prepareDrawing(bytes32 _sealedSeed) public ownerOnly {
-  function prepareDrawing() public virtual ownerOnly automationOracleOnly {
+  function prepareDrawing() public virtual ownerOnly automationOracleOrOwner {
     uint256 lastEndTime = endTimes[currentFrameIdx];
     require(block.timestamp >= lastEndTime, 'Frame not ended');
 
@@ -73,7 +83,7 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
     blockNumber = uint128(block.number + 1);
   }
 
-  function drawing() public virtual ownerOnly automationOracleOnly {
+  function drawing() public virtual ownerOnly automationOracleDrawingOrOwner {
     if (isPausedAndShouldNotDraw(endTimes[currentFrameIdx])) {
       return;
     }
@@ -154,6 +164,18 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
 
   function withdraw() public virtual ownerOnly {
     payable(owner).transfer(address(this).balance);
+  }
+
+  function setAutomationOracle(
+    address _automationOracle
+  ) public virtual ownerOnly {
+    automationOracle = _automationOracle;
+  }
+
+  function setAutomationOracleDrawing(
+    address _automationOracleDrawing
+  ) public virtual ownerOnly {
+    automationOracleDrawing = _automationOracleDrawing;
   }
   // end main func
 

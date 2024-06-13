@@ -7,7 +7,7 @@ export const config = getDefaultConfig({
   projectId: '977d43c7bca228f2d395312a8c05159b',
   chains: [sepolia, hardhat],
   transports: {
-    [sepolia.id]: http(),
+    [sepolia.id]: http(process.env.NEXT_PUBLIC_ALCHEMY_SEPOLIA_RPC_URL!),
     [hardhat.id]: http(),
   },
   ssr: true,

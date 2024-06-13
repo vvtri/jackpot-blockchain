@@ -6,53 +6,53 @@ import {
   ContractFactory,
   ContractTransactionResponse,
   Interface,
-} from 'ethers';
-import type { Signer, ContractDeployTransaction, ContractRunner } from 'ethers';
-import type { NonPayableOverrides } from '../../../../common';
+} from "ethers";
+import type { Signer, ContractDeployTransaction, ContractRunner } from "ethers";
+import type { NonPayableOverrides } from "../../../../common";
 import type {
   Address,
   AddressInterface,
-} from '../../../../@openzeppelin/contracts/utils/Address';
+} from "../../../../@openzeppelin/contracts/utils/Address";
 
 const _abi = [
   {
     inputs: [
       {
-        internalType: 'address',
-        name: 'target',
-        type: 'address',
+        internalType: "address",
+        name: "target",
+        type: "address",
       },
     ],
-    name: 'AddressEmptyCode',
-    type: 'error',
+    name: "AddressEmptyCode",
+    type: "error",
   },
   {
     inputs: [
       {
-        internalType: 'address',
-        name: 'account',
-        type: 'address',
+        internalType: "address",
+        name: "account",
+        type: "address",
       },
     ],
-    name: 'AddressInsufficientBalance',
-    type: 'error',
+    name: "AddressInsufficientBalance",
+    type: "error",
   },
   {
     inputs: [],
-    name: 'FailedInnerCall',
-    type: 'error',
+    name: "FailedInnerCall",
+    type: "error",
   },
 ] as const;
 
 const _bytecode =
-  '0x60808060405234601757603a9081601d823930815050f35b600080fdfe600080fdfea264697066735822122063d38c615408db28ffff17a3c1f6570b86f41704124a1af33b335c39062a8b2964736f6c63430008180033';
+  "0x60808060405234601757603a9081601d823930815050f35b600080fdfe600080fdfea264697066735822122063d38c615408db28ffff17a3c1f6570b86f41704124a1af33b335c39062a8b2964736f6c63430008180033";
 
 type AddressConstructorParams =
   | [signer?: Signer]
   | ConstructorParameters<typeof ContractFactory>;
 
 const isSuperArgs = (
-  xs: AddressConstructorParams,
+  xs: AddressConstructorParams
 ): xs is ConstructorParameters<typeof ContractFactory> => xs.length > 1;
 
 export class Address__factory extends ContractFactory {
@@ -65,7 +65,7 @@ export class Address__factory extends ContractFactory {
   }
 
   override getDeployTransaction(
-    overrides?: NonPayableOverrides & { from?: string },
+    overrides?: NonPayableOverrides & { from?: string }
   ): Promise<ContractDeployTransaction> {
     return super.getDeployTransaction(overrides || {});
   }
