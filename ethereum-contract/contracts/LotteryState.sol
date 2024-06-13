@@ -25,9 +25,10 @@ abstract contract LotteryState is LotteryDeclaration {
   // bytes32 public sealedSeed;
   /// 32 bit block
 
-  // /// 32 bit block
+  /// 32 bit block
   bool public isPaused;
-  // /// 32 bit block
+  address automationOracle;
+  /// 32 bit block
 
   mapping(uint256 frameIdx => uint256 endTime) public endTimes;
   mapping(uint256 frameIdx => Ticket[]) public tickets;
@@ -40,7 +41,13 @@ abstract contract LotteryState is LotteryDeclaration {
     _;
   }
   modifier userOnly() {
+
     require(msg.sender.code.length == 0, 'msg.sender.code.length == 0');
+    _;
+  }
+
+  modifier automationOracleOnly() {
+    require(msg.sender == automationOracle, 'msg.sender == automationOracle');
     _;
   }
 }

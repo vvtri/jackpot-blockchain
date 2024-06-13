@@ -2,260 +2,260 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { ethers } from 'ethers';
+import { ethers } from "ethers";
 import {
   DeployContractOptions,
   FactoryOptions,
   HardhatEthersHelpers as HardhatEthersHelpersBase,
-} from '@nomicfoundation/hardhat-ethers/types';
+} from "@nomicfoundation/hardhat-ethers/types";
 
-import * as Contracts from '.';
+import * as Contracts from ".";
 
-declare module 'hardhat/types/runtime' {
+declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
-      name: 'Initializable',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "Initializable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Initializable__factory>;
     getContractFactory(
-      name: 'UUPSUpgradeable',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "UUPSUpgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.UUPSUpgradeable__factory>;
     getContractFactory(
-      name: 'IERC1822Proxiable',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "IERC1822Proxiable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC1822Proxiable__factory>;
     getContractFactory(
-      name: 'IBeacon',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "IBeacon",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IBeacon__factory>;
     getContractFactory(
-      name: 'ERC1967Utils',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "ERC1967Utils",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ERC1967Utils__factory>;
     getContractFactory(
-      name: 'Address',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "Address",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Address__factory>;
     getContractFactory(
-      name: 'Lottery',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "Lottery",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Lottery__factory>;
     getContractFactory(
-      name: 'LotteryDeclaration',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "LotteryDeclaration",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.LotteryDeclaration__factory>;
     getContractFactory(
-      name: 'LotteryState',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "LotteryState",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.LotteryState__factory>;
     getContractFactory(
-      name: 'PayableUUPSUpgradeable',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "PayableUUPSUpgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.PayableUUPSUpgradeable__factory>;
     getContractFactory(
-      name: 'BuyLotteryTicketTest',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "BuyLotteryTicketTest",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.BuyLotteryTicketTest__factory>;
     getContractFactory(
-      name: 'LotteryTest',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "LotteryTest",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.LotteryTest__factory>;
 
     getContractAt(
-      name: 'Initializable',
+      name: "Initializable",
       address: string | ethers.Addressable,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<Contracts.Initializable>;
     getContractAt(
-      name: 'UUPSUpgradeable',
+      name: "UUPSUpgradeable",
       address: string | ethers.Addressable,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<Contracts.UUPSUpgradeable>;
     getContractAt(
-      name: 'IERC1822Proxiable',
+      name: "IERC1822Proxiable",
       address: string | ethers.Addressable,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<Contracts.IERC1822Proxiable>;
     getContractAt(
-      name: 'IBeacon',
+      name: "IBeacon",
       address: string | ethers.Addressable,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<Contracts.IBeacon>;
     getContractAt(
-      name: 'ERC1967Utils',
+      name: "ERC1967Utils",
       address: string | ethers.Addressable,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<Contracts.ERC1967Utils>;
     getContractAt(
-      name: 'Address',
+      name: "Address",
       address: string | ethers.Addressable,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<Contracts.Address>;
     getContractAt(
-      name: 'Lottery',
+      name: "Lottery",
       address: string | ethers.Addressable,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<Contracts.Lottery>;
     getContractAt(
-      name: 'LotteryDeclaration',
+      name: "LotteryDeclaration",
       address: string | ethers.Addressable,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<Contracts.LotteryDeclaration>;
     getContractAt(
-      name: 'LotteryState',
+      name: "LotteryState",
       address: string | ethers.Addressable,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<Contracts.LotteryState>;
     getContractAt(
-      name: 'PayableUUPSUpgradeable',
+      name: "PayableUUPSUpgradeable",
       address: string | ethers.Addressable,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<Contracts.PayableUUPSUpgradeable>;
     getContractAt(
-      name: 'BuyLotteryTicketTest',
+      name: "BuyLotteryTicketTest",
       address: string | ethers.Addressable,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<Contracts.BuyLotteryTicketTest>;
     getContractAt(
-      name: 'LotteryTest',
+      name: "LotteryTest",
       address: string | ethers.Addressable,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<Contracts.LotteryTest>;
 
     deployContract(
-      name: 'Initializable',
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      name: "Initializable",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Initializable>;
     deployContract(
-      name: 'UUPSUpgradeable',
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      name: "UUPSUpgradeable",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.UUPSUpgradeable>;
     deployContract(
-      name: 'IERC1822Proxiable',
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      name: "IERC1822Proxiable",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IERC1822Proxiable>;
     deployContract(
-      name: 'IBeacon',
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      name: "IBeacon",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IBeacon>;
     deployContract(
-      name: 'ERC1967Utils',
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      name: "ERC1967Utils",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.ERC1967Utils>;
     deployContract(
-      name: 'Address',
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      name: "Address",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Address>;
     deployContract(
-      name: 'Lottery',
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      name: "Lottery",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Lottery>;
     deployContract(
-      name: 'LotteryDeclaration',
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      name: "LotteryDeclaration",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LotteryDeclaration>;
     deployContract(
-      name: 'LotteryState',
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      name: "LotteryState",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LotteryState>;
     deployContract(
-      name: 'PayableUUPSUpgradeable',
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      name: "PayableUUPSUpgradeable",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.PayableUUPSUpgradeable>;
     deployContract(
-      name: 'BuyLotteryTicketTest',
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      name: "BuyLotteryTicketTest",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.BuyLotteryTicketTest>;
     deployContract(
-      name: 'LotteryTest',
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      name: "LotteryTest",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LotteryTest>;
 
     deployContract(
-      name: 'Initializable',
+      name: "Initializable",
       args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Initializable>;
     deployContract(
-      name: 'UUPSUpgradeable',
+      name: "UUPSUpgradeable",
       args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.UUPSUpgradeable>;
     deployContract(
-      name: 'IERC1822Proxiable',
+      name: "IERC1822Proxiable",
       args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IERC1822Proxiable>;
     deployContract(
-      name: 'IBeacon',
+      name: "IBeacon",
       args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IBeacon>;
     deployContract(
-      name: 'ERC1967Utils',
+      name: "ERC1967Utils",
       args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.ERC1967Utils>;
     deployContract(
-      name: 'Address',
+      name: "Address",
       args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Address>;
     deployContract(
-      name: 'Lottery',
+      name: "Lottery",
       args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Lottery>;
     deployContract(
-      name: 'LotteryDeclaration',
+      name: "LotteryDeclaration",
       args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LotteryDeclaration>;
     deployContract(
-      name: 'LotteryState',
+      name: "LotteryState",
       args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LotteryState>;
     deployContract(
-      name: 'PayableUUPSUpgradeable',
+      name: "PayableUUPSUpgradeable",
       args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.PayableUUPSUpgradeable>;
     deployContract(
-      name: 'BuyLotteryTicketTest',
+      name: "BuyLotteryTicketTest",
       args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.BuyLotteryTicketTest>;
     deployContract(
-      name: 'LotteryTest',
+      name: "LotteryTest",
       args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LotteryTest>;
 
     // default types
     getContractFactory(
       name: string,
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<ethers.ContractFactory>;
     getContractFactory(
       abi: any[],
       bytecode: ethers.BytesLike,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<ethers.ContractFactory>;
     getContractAt(
       nameOrAbi: string | any[],
       address: string | ethers.Addressable,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<ethers.Contract>;
     deployContract(
       name: string,
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<ethers.Contract>;
     deployContract(
       name: string,
       args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions,
+      signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<ethers.Contract>;
   }
 }

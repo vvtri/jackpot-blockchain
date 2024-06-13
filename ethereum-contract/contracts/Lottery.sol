@@ -7,9 +7,7 @@ import {LotteryState} from './LotteryState.sol';
 
 import 'hardhat/console.sol'; //TODO: remove
 
-// TODO: Implement transferOut money to owner.
 // TODO: Power play
-// TODO: Oracle address
 // TODO: Allow buy ticket for multiple draw
 contract Lottery is LotteryState, PayableUUPSUpgradeable {
   function _authorizeUpgrade(
@@ -20,7 +18,8 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
     uint128 _endTime,
     uint128 _frameDuration,
     uint128 _ticketPrice,
-    uint128 _powerPlayPrice
+    uint128 _powerPlayPrice,
+    address _automationOracle
   ) external virtual initializer {
     owner = msg.sender;
     endTimes[currentFrameIdx] = _endTime;
@@ -28,6 +27,7 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
     ticketPrice = _ticketPrice;
     powerPlayPrice = _powerPlayPrice;
     isPaused = false;
+    automationOracle = _automationOracle;
   }
 
   // main func
@@ -62,7 +62,7 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
 
   // Not use sealed seed because it needs automation oracle that allow use to pass parameter (seed in this case)
   // function prepareDrawing(bytes32 _sealedSeed) public ownerOnly {
-  function prepareDrawing() public virtual ownerOnly {
+  function prepareDrawing() public virtual ownerOnly automationOracleOnly {
     uint256 lastEndTime = endTimes[currentFrameIdx];
     require(block.timestamp >= lastEndTime, 'Frame not ended');
 
@@ -73,7 +73,7 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
     blockNumber = uint128(block.number + 1);
   }
 
-  function drawing() public virtual ownerOnly {
+  function drawing() public virtual ownerOnly automationOracleOnly {
     if (isPausedAndShouldNotDraw(endTimes[currentFrameIdx])) {
       return;
     }
@@ -151,6 +151,10 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
   function setCurrentEndTime(uint256 currentEndTime) public virtual ownerOnly {
     endTimes[currentFrameIdx] = currentEndTime;
   }
+
+  function withdraw() public virtual ownerOnly {
+    payable(owner).transfer(address(this).balance);
+  }
   // end main func
 
   // internal func
@@ -221,7 +225,7 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
 
     for (uint256 i = 0; i < 5; i++) {
       luckyNumber[i] = uint24(
-        uint256(
+        (uint256(
           keccak256(
             abi.encodePacked(
               finalBlockHash,
@@ -229,12 +233,12 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
               i
             )
           )
-        ) % normalSlotRange
+        ) % normalSlotRange) + MIN_LUCKY_NUMBER_SLOT_VALUE
       );
     }
 
     luckyNumber[5] = uint24(
-      uint256(
+      (uint256(
         keccak256(
           abi.encodePacked(
             finalBlockHash,
@@ -242,7 +246,8 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
             uint(5)
           )
         )
-      ) % (MAX_LUCKY_NUMBER_LAST_SLOT_VALUE - MIN_LUCKY_NUMBER_SLOT_VALUE)
+      ) % (MAX_LUCKY_NUMBER_LAST_SLOT_VALUE - MIN_LUCKY_NUMBER_SLOT_VALUE)) +
+        MIN_LUCKY_NUMBER_SLOT_VALUE
     );
   }
 
@@ -630,8 +635,8 @@ contract Lottery is LotteryState, PayableUUPSUpgradeable {
   }
 
   function shouldPreparingDrawing() external view returns (bool) {
-    console.log("block.timestamp", block.timestamp);
-    console.log("endTimes[currentFrameIdx]", endTimes[currentFrameIdx]);
+    console.log('block.timestamp', block.timestamp);
+    console.log('endTimes[currentFrameIdx]', endTimes[currentFrameIdx]);
     if (block.timestamp >= endTimes[currentFrameIdx]) return true;
     return false;
   }

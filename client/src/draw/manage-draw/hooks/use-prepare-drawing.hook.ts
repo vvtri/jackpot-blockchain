@@ -1,12 +1,20 @@
 import { useToast } from '@/common/components/shadcn/use-toast';
 import { getLotteryAddress } from '@/common/utils/contract.util';
 import { lotteryAbi } from 'ethereum-contract';
-import { useAccount, useWriteContract } from 'wagmi';
+import {
+  useAccount,
+  useWaitForTransactionReceipt,
+  useWriteContract,
+} from 'wagmi';
 
-export const usePrepareDrawing = () => {
+export const usePrepareDrawing = (onCompleted?: () => any) => {
   const { address, chainId } = useAccount();
   const { toast } = useToast();
-  const { writeContractAsync, isPending } = useWriteContract({
+  const {
+    writeContractAsync,
+    isPending,
+    data: hash,
+  } = useWriteContract({
     mutation: {
       onSuccess: () =>
         toast({
@@ -23,14 +31,20 @@ export const usePrepareDrawing = () => {
   const prepareDrawing = async () => {
     if (isPending) return;
 
-    await writeContractAsync({
+    const hash = await writeContractAsync({
       abi: lotteryAbi,
       address: getLotteryAddress(chainId),
       functionName: 'prepareDrawing',
       args: [],
       account: address,
     });
+
+    return hash;
   };
 
-  return { prepareDrawing, isPrepareDrawing: isPending };
+  return {
+    prepareDrawing,
+    isPrepareDrawing: isPending,
+    prepareDrawingHash: hash,
+  };
 };

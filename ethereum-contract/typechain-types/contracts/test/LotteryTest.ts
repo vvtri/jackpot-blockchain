@@ -13,7 +13,7 @@ import type {
   ContractRunner,
   ContractMethod,
   Listener,
-} from 'ethers';
+} from "ethers";
 import type {
   TypedContractEvent,
   TypedDeferredTopicFilter,
@@ -21,7 +21,7 @@ import type {
   TypedLogDescription,
   TypedListener,
   TypedContractMethod,
-} from '../../common';
+} from "../../common";
 
 export declare namespace LotteryDeclaration {
   export type DrawPrizeDetailDtoStruct = {
@@ -31,7 +31,7 @@ export declare namespace LotteryDeclaration {
 
   export type DrawPrizeDetailDtoStructOutput = [
     money: bigint,
-    winners: string[],
+    winners: string[]
   ] & { money: bigint; winners: string[] };
 
   export type DrawDetailDtoStruct = {
@@ -57,7 +57,7 @@ export declare namespace LotteryDeclaration {
     matchThreeAndLast: LotteryDeclaration.DrawPrizeDetailDtoStructOutput,
     matchThree: LotteryDeclaration.DrawPrizeDetailDtoStructOutput,
     matchTwoAndLast: LotteryDeclaration.DrawPrizeDetailDtoStructOutput,
-    matchLast: LotteryDeclaration.DrawPrizeDetailDtoStructOutput,
+    matchLast: LotteryDeclaration.DrawPrizeDetailDtoStructOutput
   ] & {
     endTime: bigint;
     luckyNumber: bigint[];
@@ -78,7 +78,7 @@ export declare namespace LotteryDeclaration {
 
   export type PaginationRequestDtoStructOutput = [
     page: bigint,
-    size: bigint,
+    size: bigint
   ] & { page: bigint; size: bigint };
 
   export type DrawStatisticDtoStruct = {
@@ -98,7 +98,7 @@ export declare namespace LotteryDeclaration {
     isFuture: boolean,
     luckyNumber: bigint[],
     jackpotWinners: string[],
-    matchFiveWinners: string[],
+    matchFiveWinners: string[]
   ] & {
     endTime: bigint;
     frameIdx: bigint;
@@ -116,7 +116,7 @@ export declare namespace LotteryDeclaration {
 
   export type DrawListDtoStructOutput = [
     draws: LotteryDeclaration.DrawStatisticDtoStructOutput[],
-    totalPage: bigint,
+    totalPage: bigint
   ] & {
     draws: LotteryDeclaration.DrawStatisticDtoStructOutput[];
     totalPage: bigint;
@@ -129,7 +129,7 @@ export declare namespace LotteryDeclaration {
 
   export type HomeStatisticDtoStructOutput = [
     nextDraw: LotteryDeclaration.DrawStatisticDtoStructOutput,
-    lastDraw: LotteryDeclaration.DrawStatisticDtoStructOutput,
+    lastDraw: LotteryDeclaration.DrawStatisticDtoStructOutput
   ] & {
     nextDraw: LotteryDeclaration.DrawStatisticDtoStructOutput;
     lastDraw: LotteryDeclaration.DrawStatisticDtoStructOutput;
@@ -148,7 +148,7 @@ export declare namespace LotteryDeclaration {
     isPowerPlay: boolean,
     frameIdx: bigint,
     endTime: bigint,
-    prize: bigint,
+    prize: bigint
   ] & {
     luckyNumber: bigint[];
     isPowerPlay: boolean;
@@ -166,7 +166,7 @@ export declare namespace LotteryDeclaration {
   export type TicketStructOutput = [
     owner: string,
     isPowerPlay: boolean,
-    luckyNumber: bigint[],
+    luckyNumber: bigint[]
   ] & { owner: string; isPowerPlay: boolean; luckyNumber: bigint[] };
 
   export type WinningStruct = { prize: BigNumberish; ticketIdx: BigNumberish };
@@ -180,389 +180,398 @@ export declare namespace LotteryDeclaration {
 export interface LotteryTestInterface extends Interface {
   getFunction(
     nameOrSignature:
-      | 'LOTTERY_PRIZES_FIVE_FIRST_NUMBER'
-      | 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER'
-      | 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER'
-      | 'LOTTERY_PRIZES_JACKPOT'
-      | 'LOTTERY_PRIZES_LAST_NUMBER'
-      | 'LOTTERY_PRIZES_NOT_LUCKY'
-      | 'LOTTERY_PRIZES_THREE_FIRST_NUMBER'
-      | 'LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER'
-      | 'LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER'
-      | 'MAX_LUCKY_NUMBER_LAST_SLOT_VALUE'
-      | 'MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE'
-      | 'MAX_TICKET_AMOUNT_EACH_BUY'
-      | 'MIN_LUCKY_NUMBER_SLOT_VALUE'
-      | 'UPGRADE_INTERFACE_VERSION'
-      | 'blockNumber'
-      | 'buyTicket'
-      | 'currentFrameIdx'
-      | 'drawing'
-      | 'endTimes'
-      | 'frameDuration'
-      | 'getDrawDetail'
-      | 'getDrawList'
-      | 'getHomeStatistic'
-      | 'getMyTicketList'
-      | 'getPrizeOfFrame'
-      | 'getTickets'
-      | 'getWinningHistoryByFrame'
-      | 'initialize'
-      | 'isPaidForWinners'
-      | 'isPaused'
-      | 'luckyNumbers'
-      | 'owner'
-      | 'pause'
-      | 'payForWinners'
-      | 'powerPlayPrice'
-      | 'prepareDrawing'
-      | 'proxiableUUID'
-      | 'restart(uint256)'
-      | 'restart()'
-      | 'setCurrentEndTime'
-      | 'shouldDrawing'
-      | 'shouldPreparingDrawing'
-      | 'testDrawing'
-      | 'ticketPrice'
-      | 'tickets'
-      | 'upgradeToAndCall'
-      | 'winningHistories',
+      | "LOTTERY_PRIZES_FIVE_FIRST_NUMBER"
+      | "LOTTERY_PRIZES_FOUR_FIRST_NUMBER"
+      | "LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER"
+      | "LOTTERY_PRIZES_JACKPOT"
+      | "LOTTERY_PRIZES_LAST_NUMBER"
+      | "LOTTERY_PRIZES_NOT_LUCKY"
+      | "LOTTERY_PRIZES_THREE_FIRST_NUMBER"
+      | "LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER"
+      | "LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER"
+      | "MAX_LUCKY_NUMBER_LAST_SLOT_VALUE"
+      | "MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE"
+      | "MAX_TICKET_AMOUNT_EACH_BUY"
+      | "MIN_LUCKY_NUMBER_SLOT_VALUE"
+      | "UPGRADE_INTERFACE_VERSION"
+      | "blockNumber"
+      | "buyTicket"
+      | "currentFrameIdx"
+      | "drawing"
+      | "endTimes"
+      | "frameDuration"
+      | "getDrawDetail"
+      | "getDrawList"
+      | "getHomeStatistic"
+      | "getMyTicketList"
+      | "getPrizeOfFrame"
+      | "getTickets"
+      | "getWinningHistoryByFrame"
+      | "initialize"
+      | "isPaidForWinners"
+      | "isPaused"
+      | "luckyNumbers"
+      | "owner"
+      | "pause"
+      | "payForWinners"
+      | "powerPlayPrice"
+      | "prepareDrawing"
+      | "proxiableUUID"
+      | "restart(uint256)"
+      | "restart()"
+      | "setCurrentEndTime"
+      | "shouldDrawing"
+      | "shouldPreparingDrawing"
+      | "testDrawing"
+      | "ticketPrice"
+      | "tickets"
+      | "upgradeToAndCall"
+      | "winningHistories"
+      | "withdraw"
   ): FunctionFragment;
 
-  getEvent(nameOrSignatureOrTopic: 'Initialized' | 'Upgraded'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "Initialized" | "Upgraded"): EventFragment;
 
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_FIVE_FIRST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_FIVE_FIRST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_JACKPOT',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_JACKPOT",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_LAST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_LAST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_NOT_LUCKY',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_NOT_LUCKY",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_THREE_FIRST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER',
-    values?: undefined,
+    functionFragment: "LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'MAX_LUCKY_NUMBER_LAST_SLOT_VALUE',
-    values?: undefined,
+    functionFragment: "MAX_LUCKY_NUMBER_LAST_SLOT_VALUE",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE',
-    values?: undefined,
+    functionFragment: "MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'MAX_TICKET_AMOUNT_EACH_BUY',
-    values?: undefined,
+    functionFragment: "MAX_TICKET_AMOUNT_EACH_BUY",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'MIN_LUCKY_NUMBER_SLOT_VALUE',
-    values?: undefined,
+    functionFragment: "MIN_LUCKY_NUMBER_SLOT_VALUE",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'UPGRADE_INTERFACE_VERSION',
-    values?: undefined,
+    functionFragment: "UPGRADE_INTERFACE_VERSION",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'blockNumber',
-    values?: undefined,
+    functionFragment: "blockNumber",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'buyTicket',
-    values: [BigNumberish, boolean, BigNumberish[]],
+    functionFragment: "buyTicket",
+    values: [BigNumberish, boolean, BigNumberish[]]
   ): string;
   encodeFunctionData(
-    functionFragment: 'currentFrameIdx',
-    values?: undefined,
+    functionFragment: "currentFrameIdx",
+    values?: undefined
   ): string;
-  encodeFunctionData(functionFragment: 'drawing', values?: undefined): string;
+  encodeFunctionData(functionFragment: "drawing", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: 'endTimes',
-    values: [BigNumberish],
-  ): string;
-  encodeFunctionData(
-    functionFragment: 'frameDuration',
-    values?: undefined,
+    functionFragment: "endTimes",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'getDrawDetail',
-    values: [BigNumberish],
+    functionFragment: "frameDuration",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'getDrawList',
-    values: [LotteryDeclaration.PaginationRequestDtoStruct],
+    functionFragment: "getDrawDetail",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'getHomeStatistic',
-    values?: undefined,
+    functionFragment: "getDrawList",
+    values: [LotteryDeclaration.PaginationRequestDtoStruct]
   ): string;
   encodeFunctionData(
-    functionFragment: 'getMyTicketList',
-    values?: undefined,
+    functionFragment: "getHomeStatistic",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'getPrizeOfFrame',
-    values: [BigNumberish],
+    functionFragment: "getMyTicketList",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'getTickets',
-    values: [BigNumberish],
+    functionFragment: "getPrizeOfFrame",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'getWinningHistoryByFrame',
-    values: [BigNumberish],
+    functionFragment: "getTickets",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'initialize',
-    values: [BigNumberish, BigNumberish, BigNumberish, BigNumberish],
+    functionFragment: "getWinningHistoryByFrame",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'isPaidForWinners',
-    values: [BigNumberish],
-  ): string;
-  encodeFunctionData(functionFragment: 'isPaused', values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: 'luckyNumbers',
-    values: [BigNumberish, BigNumberish],
-  ): string;
-  encodeFunctionData(functionFragment: 'owner', values?: undefined): string;
-  encodeFunctionData(functionFragment: 'pause', values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: 'payForWinners',
-    values: [BigNumberish],
+    functionFragment: "initialize",
+    values: [
+      BigNumberish,
+      BigNumberish,
+      BigNumberish,
+      BigNumberish,
+      AddressLike
+    ]
   ): string;
   encodeFunctionData(
-    functionFragment: 'powerPlayPrice',
-    values?: undefined,
+    functionFragment: "isPaidForWinners",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(functionFragment: "isPaused", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "luckyNumbers",
+    values: [BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(functionFragment: "owner", values?: undefined): string;
+  encodeFunctionData(functionFragment: "pause", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "payForWinners",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'prepareDrawing',
-    values?: undefined,
+    functionFragment: "powerPlayPrice",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'proxiableUUID',
-    values?: undefined,
+    functionFragment: "prepareDrawing",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'restart(uint256)',
-    values: [BigNumberish],
-  ): string;
-  encodeFunctionData(functionFragment: 'restart()', values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: 'setCurrentEndTime',
-    values: [BigNumberish],
+    functionFragment: "proxiableUUID",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'shouldDrawing',
-    values?: undefined,
+    functionFragment: "restart(uint256)",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(functionFragment: "restart()", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "setCurrentEndTime",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'shouldPreparingDrawing',
-    values?: undefined,
+    functionFragment: "shouldDrawing",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'testDrawing',
-    values: [BigNumberish[]],
+    functionFragment: "shouldPreparingDrawing",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'ticketPrice',
-    values?: undefined,
+    functionFragment: "testDrawing",
+    values: [BigNumberish[]]
   ): string;
   encodeFunctionData(
-    functionFragment: 'tickets',
-    values: [BigNumberish, BigNumberish],
+    functionFragment: "ticketPrice",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'upgradeToAndCall',
-    values: [AddressLike, BytesLike],
+    functionFragment: "tickets",
+    values: [BigNumberish, BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'winningHistories',
-    values: [BigNumberish, BigNumberish],
+    functionFragment: "upgradeToAndCall",
+    values: [AddressLike, BytesLike]
   ): string;
+  encodeFunctionData(
+    functionFragment: "winningHistories",
+    values: [BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(functionFragment: "withdraw", values?: undefined): string;
 
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_FIVE_FIRST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_FIVE_FIRST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_JACKPOT',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_JACKPOT",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_LAST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_LAST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_NOT_LUCKY',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_NOT_LUCKY",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_THREE_FIRST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER',
-    data: BytesLike,
+    functionFragment: "LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'MAX_LUCKY_NUMBER_LAST_SLOT_VALUE',
-    data: BytesLike,
+    functionFragment: "MAX_LUCKY_NUMBER_LAST_SLOT_VALUE",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE',
-    data: BytesLike,
+    functionFragment: "MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'MAX_TICKET_AMOUNT_EACH_BUY',
-    data: BytesLike,
+    functionFragment: "MAX_TICKET_AMOUNT_EACH_BUY",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'MIN_LUCKY_NUMBER_SLOT_VALUE',
-    data: BytesLike,
+    functionFragment: "MIN_LUCKY_NUMBER_SLOT_VALUE",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'UPGRADE_INTERFACE_VERSION',
-    data: BytesLike,
+    functionFragment: "UPGRADE_INTERFACE_VERSION",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'blockNumber',
-    data: BytesLike,
+    functionFragment: "blockNumber",
+    data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: 'buyTicket', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "buyTicket", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: 'currentFrameIdx',
-    data: BytesLike,
+    functionFragment: "currentFrameIdx",
+    data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: 'drawing', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'endTimes', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "drawing", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "endTimes", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: 'frameDuration',
-    data: BytesLike,
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: 'getDrawDetail',
-    data: BytesLike,
+    functionFragment: "frameDuration",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'getDrawList',
-    data: BytesLike,
+    functionFragment: "getDrawDetail",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'getHomeStatistic',
-    data: BytesLike,
+    functionFragment: "getDrawList",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'getMyTicketList',
-    data: BytesLike,
+    functionFragment: "getHomeStatistic",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'getPrizeOfFrame',
-    data: BytesLike,
-  ): Result;
-  decodeFunctionResult(functionFragment: 'getTickets', data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: 'getWinningHistoryByFrame',
-    data: BytesLike,
-  ): Result;
-  decodeFunctionResult(functionFragment: 'initialize', data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: 'isPaidForWinners',
-    data: BytesLike,
-  ): Result;
-  decodeFunctionResult(functionFragment: 'isPaused', data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: 'luckyNumbers',
-    data: BytesLike,
-  ): Result;
-  decodeFunctionResult(functionFragment: 'owner', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'pause', data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: 'payForWinners',
-    data: BytesLike,
+    functionFragment: "getMyTicketList",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'powerPlayPrice',
-    data: BytesLike,
+    functionFragment: "getPrizeOfFrame",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "getTickets", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "getWinningHistoryByFrame",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "isPaidForWinners",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "isPaused", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "luckyNumbers",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "pause", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "payForWinners",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'prepareDrawing',
-    data: BytesLike,
+    functionFragment: "powerPlayPrice",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'proxiableUUID',
-    data: BytesLike,
+    functionFragment: "prepareDrawing",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'restart(uint256)',
-    data: BytesLike,
-  ): Result;
-  decodeFunctionResult(functionFragment: 'restart()', data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: 'setCurrentEndTime',
-    data: BytesLike,
+    functionFragment: "proxiableUUID",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'shouldDrawing',
-    data: BytesLike,
+    functionFragment: "restart(uint256)",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "restart()", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "setCurrentEndTime",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'shouldPreparingDrawing',
-    data: BytesLike,
+    functionFragment: "shouldDrawing",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'testDrawing',
-    data: BytesLike,
+    functionFragment: "shouldPreparingDrawing",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'ticketPrice',
-    data: BytesLike,
-  ): Result;
-  decodeFunctionResult(functionFragment: 'tickets', data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: 'upgradeToAndCall',
-    data: BytesLike,
+    functionFragment: "testDrawing",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'winningHistories',
-    data: BytesLike,
+    functionFragment: "ticketPrice",
+    data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "tickets", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "upgradeToAndCall",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "winningHistories",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
 }
 
 export namespace InitializedEvent {
@@ -598,140 +607,140 @@ export interface LotteryTest extends BaseContract {
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TypedEventLog<TCEvent>>>;
   queryFilter<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TypedEventLog<TCEvent>>>;
 
   on<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
   on<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
 
   once<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
   once<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>,
+    listener: TypedListener<TCEvent>
   ): Promise<this>;
 
   listeners<TCEvent extends TypedContractEvent>(
-    event: TCEvent,
+    event: TCEvent
   ): Promise<Array<TypedListener<TCEvent>>>;
   listeners(eventName?: string): Promise<Array<Listener>>;
   removeAllListeners<TCEvent extends TypedContractEvent>(
-    event?: TCEvent,
+    event?: TCEvent
   ): Promise<this>;
 
-  LOTTERY_PRIZES_FIVE_FIRST_NUMBER: TypedContractMethod<[], [bigint], 'view'>;
+  LOTTERY_PRIZES_FIVE_FIRST_NUMBER: TypedContractMethod<[], [bigint], "view">;
 
-  LOTTERY_PRIZES_FOUR_FIRST_NUMBER: TypedContractMethod<[], [bigint], 'view'>;
+  LOTTERY_PRIZES_FOUR_FIRST_NUMBER: TypedContractMethod<[], [bigint], "view">;
 
   LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER: TypedContractMethod<
     [],
     [bigint],
-    'view'
+    "view"
   >;
 
-  LOTTERY_PRIZES_JACKPOT: TypedContractMethod<[], [bigint], 'view'>;
+  LOTTERY_PRIZES_JACKPOT: TypedContractMethod<[], [bigint], "view">;
 
-  LOTTERY_PRIZES_LAST_NUMBER: TypedContractMethod<[], [bigint], 'view'>;
+  LOTTERY_PRIZES_LAST_NUMBER: TypedContractMethod<[], [bigint], "view">;
 
-  LOTTERY_PRIZES_NOT_LUCKY: TypedContractMethod<[], [bigint], 'view'>;
+  LOTTERY_PRIZES_NOT_LUCKY: TypedContractMethod<[], [bigint], "view">;
 
-  LOTTERY_PRIZES_THREE_FIRST_NUMBER: TypedContractMethod<[], [bigint], 'view'>;
+  LOTTERY_PRIZES_THREE_FIRST_NUMBER: TypedContractMethod<[], [bigint], "view">;
 
   LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER: TypedContractMethod<
     [],
     [bigint],
-    'view'
+    "view"
   >;
 
   LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER: TypedContractMethod<
     [],
     [bigint],
-    'view'
+    "view"
   >;
 
-  MAX_LUCKY_NUMBER_LAST_SLOT_VALUE: TypedContractMethod<[], [bigint], 'view'>;
+  MAX_LUCKY_NUMBER_LAST_SLOT_VALUE: TypedContractMethod<[], [bigint], "view">;
 
-  MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE: TypedContractMethod<[], [bigint], 'view'>;
+  MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE: TypedContractMethod<[], [bigint], "view">;
 
-  MAX_TICKET_AMOUNT_EACH_BUY: TypedContractMethod<[], [bigint], 'view'>;
+  MAX_TICKET_AMOUNT_EACH_BUY: TypedContractMethod<[], [bigint], "view">;
 
-  MIN_LUCKY_NUMBER_SLOT_VALUE: TypedContractMethod<[], [bigint], 'view'>;
+  MIN_LUCKY_NUMBER_SLOT_VALUE: TypedContractMethod<[], [bigint], "view">;
 
-  UPGRADE_INTERFACE_VERSION: TypedContractMethod<[], [string], 'view'>;
+  UPGRADE_INTERFACE_VERSION: TypedContractMethod<[], [string], "view">;
 
-  blockNumber: TypedContractMethod<[], [bigint], 'view'>;
+  blockNumber: TypedContractMethod<[], [bigint], "view">;
 
   buyTicket: TypedContractMethod<
     [
       _amount: BigNumberish,
       _isPowerPlay: boolean,
-      _ticketNumber: BigNumberish[],
+      _ticketNumber: BigNumberish[]
     ],
     [void],
-    'payable'
+    "payable"
   >;
 
-  currentFrameIdx: TypedContractMethod<[], [bigint], 'view'>;
+  currentFrameIdx: TypedContractMethod<[], [bigint], "view">;
 
-  drawing: TypedContractMethod<[], [void], 'nonpayable'>;
+  drawing: TypedContractMethod<[], [void], "nonpayable">;
 
-  endTimes: TypedContractMethod<[frameIdx: BigNumberish], [bigint], 'view'>;
+  endTimes: TypedContractMethod<[frameIdx: BigNumberish], [bigint], "view">;
 
-  frameDuration: TypedContractMethod<[], [bigint], 'view'>;
+  frameDuration: TypedContractMethod<[], [bigint], "view">;
 
   getDrawDetail: TypedContractMethod<
     [frameIdx: BigNumberish],
     [LotteryDeclaration.DrawDetailDtoStructOutput],
-    'view'
+    "view"
   >;
 
   getDrawList: TypedContractMethod<
     [paginationDto: LotteryDeclaration.PaginationRequestDtoStruct],
     [LotteryDeclaration.DrawListDtoStructOutput],
-    'view'
+    "view"
   >;
 
   getHomeStatistic: TypedContractMethod<
     [],
     [LotteryDeclaration.HomeStatisticDtoStructOutput],
-    'view'
+    "view"
   >;
 
   getMyTicketList: TypedContractMethod<
     [],
     [LotteryDeclaration.TicketDtoStructOutput[]],
-    'view'
+    "view"
   >;
 
   getPrizeOfFrame: TypedContractMethod<
     [_frameIdx: BigNumberish],
     [bigint],
-    'view'
+    "view"
   >;
 
   getTickets: TypedContractMethod<
     [frameIdx: BigNumberish],
     [LotteryDeclaration.TicketStructOutput[]],
-    'view'
+    "view"
   >;
 
   getWinningHistoryByFrame: TypedContractMethod<
     [frameIdx: BigNumberish],
     [LotteryDeclaration.WinningStructOutput[]],
-    'view'
+    "view"
   >;
 
   initialize: TypedContractMethod<
@@ -740,297 +749,304 @@ export interface LotteryTest extends BaseContract {
       _frameDuration: BigNumberish,
       _ticketPrice: BigNumberish,
       _powerPlayPrice: BigNumberish,
+      _automationOracle: AddressLike
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
   isPaidForWinners: TypedContractMethod<
     [frameIdx: BigNumberish],
     [boolean],
-    'view'
+    "view"
   >;
 
-  isPaused: TypedContractMethod<[], [boolean], 'view'>;
+  isPaused: TypedContractMethod<[], [boolean], "view">;
 
   luckyNumbers: TypedContractMethod<
     [frameIdx: BigNumberish, arg1: BigNumberish],
     [bigint],
-    'view'
+    "view"
   >;
 
-  owner: TypedContractMethod<[], [string], 'view'>;
+  owner: TypedContractMethod<[], [string], "view">;
 
-  pause: TypedContractMethod<[], [void], 'nonpayable'>;
+  pause: TypedContractMethod<[], [void], "nonpayable">;
 
   payForWinners: TypedContractMethod<
     [frameIdx: BigNumberish],
     [void],
-    'payable'
+    "payable"
   >;
 
-  powerPlayPrice: TypedContractMethod<[], [bigint], 'view'>;
+  powerPlayPrice: TypedContractMethod<[], [bigint], "view">;
 
-  prepareDrawing: TypedContractMethod<[], [void], 'nonpayable'>;
+  prepareDrawing: TypedContractMethod<[], [void], "nonpayable">;
 
-  proxiableUUID: TypedContractMethod<[], [string], 'view'>;
+  proxiableUUID: TypedContractMethod<[], [string], "view">;
 
-  'restart(uint256)': TypedContractMethod<
+  "restart(uint256)": TypedContractMethod<
     [newEndTime: BigNumberish],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
-  'restart()': TypedContractMethod<[], [void], 'nonpayable'>;
+  "restart()": TypedContractMethod<[], [void], "nonpayable">;
 
   setCurrentEndTime: TypedContractMethod<
     [currentEndTime: BigNumberish],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
-  shouldDrawing: TypedContractMethod<[], [boolean], 'view'>;
+  shouldDrawing: TypedContractMethod<[], [boolean], "view">;
 
-  shouldPreparingDrawing: TypedContractMethod<[], [boolean], 'view'>;
+  shouldPreparingDrawing: TypedContractMethod<[], [boolean], "view">;
 
   testDrawing: TypedContractMethod<
     [_luckyNumber: BigNumberish[]],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
 
-  ticketPrice: TypedContractMethod<[], [bigint], 'view'>;
+  ticketPrice: TypedContractMethod<[], [bigint], "view">;
 
   tickets: TypedContractMethod<
     [frameIdx: BigNumberish, arg1: BigNumberish],
     [[string, boolean] & { owner: string; isPowerPlay: boolean }],
-    'view'
+    "view"
   >;
 
   upgradeToAndCall: TypedContractMethod<
     [newImplementation: AddressLike, data: BytesLike],
     [void],
-    'payable'
+    "payable"
   >;
 
   winningHistories: TypedContractMethod<
     [frameIdx: BigNumberish, arg1: BigNumberish],
     [[bigint, bigint] & { prize: bigint; ticketIdx: bigint }],
-    'view'
+    "view"
   >;
 
+  withdraw: TypedContractMethod<[], [void], "nonpayable">;
+
   getFunction<T extends ContractMethod = ContractMethod>(
-    key: string | FunctionFragment,
+    key: string | FunctionFragment
   ): T;
 
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_FIVE_FIRST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_FIVE_FIRST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_FOUR_FIRST_NUMBER_AND_LAST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_JACKPOT',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_JACKPOT"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_LAST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_LAST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_NOT_LUCKY',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_NOT_LUCKY"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_THREE_FIRST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_THREE_FIRST_NUMBER_AND_LAST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "LOTTERY_PRIZES_TWO_FIRST_NUMBER_AND_LAST_NUMBER"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'MAX_LUCKY_NUMBER_LAST_SLOT_VALUE',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "MAX_LUCKY_NUMBER_LAST_SLOT_VALUE"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "MAX_LUCKY_NUMBER_NORMAL_SLOT_VALUE"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'MAX_TICKET_AMOUNT_EACH_BUY',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "MAX_TICKET_AMOUNT_EACH_BUY"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'MIN_LUCKY_NUMBER_SLOT_VALUE',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "MIN_LUCKY_NUMBER_SLOT_VALUE"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'UPGRADE_INTERFACE_VERSION',
-  ): TypedContractMethod<[], [string], 'view'>;
+    nameOrSignature: "UPGRADE_INTERFACE_VERSION"
+  ): TypedContractMethod<[], [string], "view">;
   getFunction(
-    nameOrSignature: 'blockNumber',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "blockNumber"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'buyTicket',
+    nameOrSignature: "buyTicket"
   ): TypedContractMethod<
     [
       _amount: BigNumberish,
       _isPowerPlay: boolean,
-      _ticketNumber: BigNumberish[],
+      _ticketNumber: BigNumberish[]
     ],
     [void],
-    'payable'
+    "payable"
   >;
   getFunction(
-    nameOrSignature: 'currentFrameIdx',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "currentFrameIdx"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'drawing',
-  ): TypedContractMethod<[], [void], 'nonpayable'>;
+    nameOrSignature: "drawing"
+  ): TypedContractMethod<[], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: 'endTimes',
-  ): TypedContractMethod<[frameIdx: BigNumberish], [bigint], 'view'>;
+    nameOrSignature: "endTimes"
+  ): TypedContractMethod<[frameIdx: BigNumberish], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'frameDuration',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "frameDuration"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'getDrawDetail',
+    nameOrSignature: "getDrawDetail"
   ): TypedContractMethod<
     [frameIdx: BigNumberish],
     [LotteryDeclaration.DrawDetailDtoStructOutput],
-    'view'
+    "view"
   >;
   getFunction(
-    nameOrSignature: 'getDrawList',
+    nameOrSignature: "getDrawList"
   ): TypedContractMethod<
     [paginationDto: LotteryDeclaration.PaginationRequestDtoStruct],
     [LotteryDeclaration.DrawListDtoStructOutput],
-    'view'
+    "view"
   >;
   getFunction(
-    nameOrSignature: 'getHomeStatistic',
+    nameOrSignature: "getHomeStatistic"
   ): TypedContractMethod<
     [],
     [LotteryDeclaration.HomeStatisticDtoStructOutput],
-    'view'
+    "view"
   >;
   getFunction(
-    nameOrSignature: 'getMyTicketList',
+    nameOrSignature: "getMyTicketList"
   ): TypedContractMethod<
     [],
     [LotteryDeclaration.TicketDtoStructOutput[]],
-    'view'
+    "view"
   >;
   getFunction(
-    nameOrSignature: 'getPrizeOfFrame',
-  ): TypedContractMethod<[_frameIdx: BigNumberish], [bigint], 'view'>;
+    nameOrSignature: "getPrizeOfFrame"
+  ): TypedContractMethod<[_frameIdx: BigNumberish], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'getTickets',
+    nameOrSignature: "getTickets"
   ): TypedContractMethod<
     [frameIdx: BigNumberish],
     [LotteryDeclaration.TicketStructOutput[]],
-    'view'
+    "view"
   >;
   getFunction(
-    nameOrSignature: 'getWinningHistoryByFrame',
+    nameOrSignature: "getWinningHistoryByFrame"
   ): TypedContractMethod<
     [frameIdx: BigNumberish],
     [LotteryDeclaration.WinningStructOutput[]],
-    'view'
+    "view"
   >;
   getFunction(
-    nameOrSignature: 'initialize',
+    nameOrSignature: "initialize"
   ): TypedContractMethod<
     [
       _endTime: BigNumberish,
       _frameDuration: BigNumberish,
       _ticketPrice: BigNumberish,
       _powerPlayPrice: BigNumberish,
+      _automationOracle: AddressLike
     ],
     [void],
-    'nonpayable'
+    "nonpayable"
   >;
   getFunction(
-    nameOrSignature: 'isPaidForWinners',
-  ): TypedContractMethod<[frameIdx: BigNumberish], [boolean], 'view'>;
+    nameOrSignature: "isPaidForWinners"
+  ): TypedContractMethod<[frameIdx: BigNumberish], [boolean], "view">;
   getFunction(
-    nameOrSignature: 'isPaused',
-  ): TypedContractMethod<[], [boolean], 'view'>;
+    nameOrSignature: "isPaused"
+  ): TypedContractMethod<[], [boolean], "view">;
   getFunction(
-    nameOrSignature: 'luckyNumbers',
+    nameOrSignature: "luckyNumbers"
   ): TypedContractMethod<
     [frameIdx: BigNumberish, arg1: BigNumberish],
     [bigint],
-    'view'
+    "view"
   >;
   getFunction(
-    nameOrSignature: 'owner',
-  ): TypedContractMethod<[], [string], 'view'>;
+    nameOrSignature: "owner"
+  ): TypedContractMethod<[], [string], "view">;
   getFunction(
-    nameOrSignature: 'pause',
-  ): TypedContractMethod<[], [void], 'nonpayable'>;
+    nameOrSignature: "pause"
+  ): TypedContractMethod<[], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: 'payForWinners',
-  ): TypedContractMethod<[frameIdx: BigNumberish], [void], 'payable'>;
+    nameOrSignature: "payForWinners"
+  ): TypedContractMethod<[frameIdx: BigNumberish], [void], "payable">;
   getFunction(
-    nameOrSignature: 'powerPlayPrice',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "powerPlayPrice"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'prepareDrawing',
-  ): TypedContractMethod<[], [void], 'nonpayable'>;
+    nameOrSignature: "prepareDrawing"
+  ): TypedContractMethod<[], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: 'proxiableUUID',
-  ): TypedContractMethod<[], [string], 'view'>;
+    nameOrSignature: "proxiableUUID"
+  ): TypedContractMethod<[], [string], "view">;
   getFunction(
-    nameOrSignature: 'restart(uint256)',
-  ): TypedContractMethod<[newEndTime: BigNumberish], [void], 'nonpayable'>;
+    nameOrSignature: "restart(uint256)"
+  ): TypedContractMethod<[newEndTime: BigNumberish], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: 'restart()',
-  ): TypedContractMethod<[], [void], 'nonpayable'>;
+    nameOrSignature: "restart()"
+  ): TypedContractMethod<[], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: 'setCurrentEndTime',
-  ): TypedContractMethod<[currentEndTime: BigNumberish], [void], 'nonpayable'>;
+    nameOrSignature: "setCurrentEndTime"
+  ): TypedContractMethod<[currentEndTime: BigNumberish], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: 'shouldDrawing',
-  ): TypedContractMethod<[], [boolean], 'view'>;
+    nameOrSignature: "shouldDrawing"
+  ): TypedContractMethod<[], [boolean], "view">;
   getFunction(
-    nameOrSignature: 'shouldPreparingDrawing',
-  ): TypedContractMethod<[], [boolean], 'view'>;
+    nameOrSignature: "shouldPreparingDrawing"
+  ): TypedContractMethod<[], [boolean], "view">;
   getFunction(
-    nameOrSignature: 'testDrawing',
-  ): TypedContractMethod<[_luckyNumber: BigNumberish[]], [void], 'nonpayable'>;
+    nameOrSignature: "testDrawing"
+  ): TypedContractMethod<[_luckyNumber: BigNumberish[]], [void], "nonpayable">;
   getFunction(
-    nameOrSignature: 'ticketPrice',
-  ): TypedContractMethod<[], [bigint], 'view'>;
+    nameOrSignature: "ticketPrice"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: 'tickets',
+    nameOrSignature: "tickets"
   ): TypedContractMethod<
     [frameIdx: BigNumberish, arg1: BigNumberish],
     [[string, boolean] & { owner: string; isPowerPlay: boolean }],
-    'view'
+    "view"
   >;
   getFunction(
-    nameOrSignature: 'upgradeToAndCall',
+    nameOrSignature: "upgradeToAndCall"
   ): TypedContractMethod<
     [newImplementation: AddressLike, data: BytesLike],
     [void],
-    'payable'
+    "payable"
   >;
   getFunction(
-    nameOrSignature: 'winningHistories',
+    nameOrSignature: "winningHistories"
   ): TypedContractMethod<
     [frameIdx: BigNumberish, arg1: BigNumberish],
     [[bigint, bigint] & { prize: bigint; ticketIdx: bigint }],
-    'view'
+    "view"
   >;
+  getFunction(
+    nameOrSignature: "withdraw"
+  ): TypedContractMethod<[], [void], "nonpayable">;
 
   getEvent(
-    key: 'Initialized',
+    key: "Initialized"
   ): TypedContractEvent<
     InitializedEvent.InputTuple,
     InitializedEvent.OutputTuple,
     InitializedEvent.OutputObject
   >;
   getEvent(
-    key: 'Upgraded',
+    key: "Upgraded"
   ): TypedContractEvent<
     UpgradedEvent.InputTuple,
     UpgradedEvent.OutputTuple,
@@ -1038,7 +1054,7 @@ export interface LotteryTest extends BaseContract {
   >;
 
   filters: {
-    'Initialized(uint64)': TypedContractEvent<
+    "Initialized(uint64)": TypedContractEvent<
       InitializedEvent.InputTuple,
       InitializedEvent.OutputTuple,
       InitializedEvent.OutputObject
@@ -1049,7 +1065,7 @@ export interface LotteryTest extends BaseContract {
       InitializedEvent.OutputObject
     >;
 
-    'Upgraded(address)': TypedContractEvent<
+    "Upgraded(address)": TypedContractEvent<
       UpgradedEvent.InputTuple,
       UpgradedEvent.OutputTuple,
       UpgradedEvent.OutputObject

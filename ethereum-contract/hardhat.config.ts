@@ -25,6 +25,7 @@ const config: HardhatUserConfig = {
       url: 'http://localhost:8545',
       mining: {
         auto: true,
+        interval: 20000,
       },
     },
     sepolia: {

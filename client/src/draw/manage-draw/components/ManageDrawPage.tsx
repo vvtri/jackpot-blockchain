@@ -1,40 +1,39 @@
 'use client';
 
-import MaxWidthWrapper from '@/common/components/utils/MaxWidthWrapper';
-import React, { useState } from 'react';
-import DateRangePicker from '@/common/components/utils/DateRangePicker';
 import { Button } from '@/common/components/shadcn/button';
-import { DateRange } from 'react-day-picker';
-import { usePathname, useRouter } from 'next/navigation';
-import { appDayjs } from '@/common/configs/dayjs.config';
-import { DATE_FORMAT_FILTER_DRAW } from '@/draw/common/constants/draw.constant';
-import { useGetDrawListHook } from '@/draw/common/hooks/use-get-draw-list.hook';
-import { useAccount } from 'wagmi';
-import { useShouldShowDrawing } from '../hooks/use-should-show-drawing.hook';
-import { usePrepareDrawing } from '../hooks/use-prepare-drawing.hook';
-import { useDrawing } from '../hooks/use-drawing.hook';
-import { Loader2 } from 'lucide-react';
-import { useSetCurrentEndTime } from '../hooks/use-set-current-end-time.hook';
-import DatePicker from '@/common/components/utils/DatePicker';
 import { DateTimePicker } from '@/common/components/shadcn/datetime-picker';
-import {
-  CalendarDate,
-  CalendarDateTime,
-  Time,
-  ZonedDateTime,
-} from '@internationalized/date';
+import MaxWidthWrapper from '@/common/components/utils/MaxWidthWrapper';
+import { CalendarDateTime } from '@internationalized/date';
+import { Loader2 } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { useDrawing } from '../hooks/use-drawing.hook';
+import { usePrepareDrawing } from '../hooks/use-prepare-drawing.hook';
+import { useSetCurrentEndTime } from '../hooks/use-set-current-end-time.hook';
+import { useShouldShowDrawing } from '../hooks/use-should-show-drawing.hook';
+import { useWaitForTransactionReceipt } from 'wagmi';
 
 type ManageDrawPageProps = {};
 
 export default function ManageDrawPage(props: ManageDrawPageProps) {
-  const { isLoading, shouldDrawing, shouldPreparingDrawing } =
+  const { isLoading, shouldDrawing, shouldPreparingDrawing, refetch } =
     useShouldShowDrawing();
-  const { prepareDrawing, isPrepareDrawing } = usePrepareDrawing();
+  const { prepareDrawing, isPrepareDrawing, prepareDrawingHash } =
+    usePrepareDrawing();
   const { drawing, isDrawing } = useDrawing();
   const { setCurrentEndTime, isSetCurrentEndTime } = useSetCurrentEndTime();
   const [newCurrentEndTime, setNewCurrentEndTime] = useState<
     CalendarDateTime | undefined
   >();
+
+  const { data: transReceipt } = useWaitForTransactionReceipt({
+    hash: prepareDrawingHash,
+    query: { enabled: Boolean(prepareDrawingHash) },
+  });
+
+  useEffect(() => {
+    if (!transReceipt) return;
+    refetch();
+  }, [transReceipt]);
 
   return (
     <MaxWidthWrapper className="pt-6 pb-12 min-h-[200vh]">
