@@ -4,7 +4,7 @@ import { hardhat } from 'wagmi/chains';
 
 export default function RainbowKitProvider({ children }: PropsWithChildren) {
   return (
-    <RainbowKitProviderBase initialChain={hardhat}>
+    <RainbowKitProviderBase initialChain={hardhat} >
       {children}
     </RainbowKitProviderBase>
   );
