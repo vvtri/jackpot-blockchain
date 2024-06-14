@@ -310,6 +310,20 @@ export const lotteryAbi = [
   {
     type: 'function',
     inputs: [],
+    name: 'automationOracle',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'automationOracleDrawing',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
     name: 'blockNumber',
     outputs: [{ name: '', internalType: 'uint128', type: 'uint128' }],
     stateMutability: 'view',
@@ -718,6 +732,28 @@ export const lotteryAbi = [
   {
     type: 'function',
     inputs: [
+      { name: '_automationOracle', internalType: 'address', type: 'address' },
+    ],
+    name: 'setAutomationOracle',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      {
+        name: '_automationOracleDrawing',
+        internalType: 'address',
+        type: 'address',
+      },
+    ],
+    name: 'setAutomationOracleDrawing',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
       { name: 'currentEndTime', internalType: 'uint256', type: 'uint256' },
     ],
     name: 'setCurrentEndTime',
@@ -780,6 +816,13 @@ export const lotteryAbi = [
       { name: 'ticketIdx', internalType: 'uint72', type: 'uint72' },
     ],
     stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'withdraw',
+    outputs: [],
+    stateMutability: 'nonpayable',
   },
   { type: 'receive', stateMutability: 'payable' },
 ] as const;
@@ -976,6 +1019,13 @@ export const lotteryStateAbi = [
     inputs: [],
     name: 'MIN_LUCKY_NUMBER_SLOT_VALUE',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'automationOracle',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
     stateMutability: 'view',
   },
   {
@@ -1233,6 +1283,20 @@ export const lotteryTestAbi = [
   {
     type: 'function',
     inputs: [],
+    name: 'automationOracle',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'automationOracleDrawing',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
     name: 'blockNumber',
     outputs: [{ name: '', internalType: 'uint128', type: 'uint128' }],
     stateMutability: 'view',
@@ -1641,6 +1705,28 @@ export const lotteryTestAbi = [
   {
     type: 'function',
     inputs: [
+      { name: '_automationOracle', internalType: 'address', type: 'address' },
+    ],
+    name: 'setAutomationOracle',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      {
+        name: '_automationOracleDrawing',
+        internalType: 'address',
+        type: 'address',
+      },
+    ],
+    name: 'setAutomationOracleDrawing',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
       { name: 'currentEndTime', internalType: 'uint256', type: 'uint256' },
     ],
     name: 'setCurrentEndTime',
@@ -1712,6 +1798,13 @@ export const lotteryTestAbi = [
       { name: 'ticketIdx', internalType: 'uint72', type: 'uint72' },
     ],
     stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'withdraw',
+    outputs: [],
+    stateMutability: 'nonpayable',
   },
   { type: 'receive', stateMutability: 'payable' },
 ] as const;

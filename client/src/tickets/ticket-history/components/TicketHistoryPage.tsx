@@ -1,9 +1,7 @@
 'use client';
 
 import MaxWidthWrapper from '@/common/components/utils/MaxWidthWrapper';
-import DrawHistoryItem from '@/draw/draw-history/components/DrawHistoryItem';
 import { useGetMyTicketList } from '@/tickets/common/hooks/use-get-ticket-list.hook';
-import { usePathname, useRouter } from 'next/navigation';
 import TicketHistoryItem from './TicketHistoryItem';
 
 type TicketHistoryPageProps = {};

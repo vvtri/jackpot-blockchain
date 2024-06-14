@@ -36,7 +36,7 @@ const config: HardhatUserConfig = {
   },
   gasReporter: {
     enabled: boolean(process.env.ENABLE_GAS_REPORTER!),
-    // coinmarketcap: process.env.COIN_MARKET_CAP_API_KEY,
+    coinmarketcap: process.env.COIN_MARKET_CAP_API_KEY,
   },
   etherscan: { apiKey: process.env.ETHERSCAN_API_KEY, enabled: true },
   defaultNetwork: 'hardhat',

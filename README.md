@@ -42,7 +42,7 @@ Prices:
 4. Match four first number: 100 * base price
 5. Match three first number and 1 last number: 100 * base price
 6. Match three first number: 7 * base price
-7. Match two first number and last number: 7 * base price
+7. Match two two number and last number: 7 * base price
 8. Match one only last number: 4 * base price
 
 #### Ticket
